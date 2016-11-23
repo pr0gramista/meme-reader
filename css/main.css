@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 95%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.next-page {
+    text-align: center;
+}
+
+#content {
+    padding: 10px 20px;
+}
+
+.post img,
+.post video {
+    width: 100%;
+}
+
+.post a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav#main-nav a {
+    color: #000;
+    text-decoration: none;
+}
+
+nav#main-nav ul {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+}
+
+nav#main-nav li {
+    display: inline-block;
+    padding: 14px;
+}
+
+/* Gallery */
+ul.gallery {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+ul.gallery > li {
+    display: none;
+}
+
+ul.gallery > li.active {
+    display: block;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: #333;
+  margin: 10px;
+  width: auto;
+  text-decoration: none;
+}
+
+/* Gallery navigation buttons */
+.btn-gallery-nav-left {
+    position: absolute;
+    top: 150px;
+    left: -50px;
+}
+
+.btn-gallery-nav-right {
+    position: absolute;
+    top: 150px;
+    right: -50px;
+}
+
+@media (max-width:770px) {
+    #content {
+        padding: 5px;
+    }
+}
