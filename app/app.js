@@ -65,7 +65,7 @@ var captionedGalleryMemeTemplate = '<div class="post">' +
     '</div>';
 
 //Setup routing
-page.base('/meme-reader');
+page.base(BASE_URL);
 page('/thecodinglove/:id', thecodinglove);
 page('/thecodinglove', thecodinglove);
 page('/mistrzowie/:id', mistrzowie);
