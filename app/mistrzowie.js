@@ -42,5 +42,7 @@ function mistrzowie(ctx) {
 
         //Initialize galleries
         createGalleries();
+
+        scrollToTop();
     });
 }

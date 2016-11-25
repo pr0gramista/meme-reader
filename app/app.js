@@ -9,6 +9,10 @@ function get_url(base, ctx) {
         return API + '/' + base + '/';
 }
 
+function scrollToTop() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+}
+
 var classes = ['kwejk', 'demotywatory', 'mistrzowie', 'thecodinglove'];
 function make_classes(classToExist) {
     var body = $('body');

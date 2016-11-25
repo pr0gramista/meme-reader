@@ -32,5 +32,7 @@ function thecodinglove(ctx) {
 
         //Initialize galleries
         createGalleries();
+
+        scrollToTop();
     });
 }

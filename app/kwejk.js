@@ -42,5 +42,7 @@ function kwejk(ctx) {
 
         //Initialize galleries
         createGalleries();
+
+        scrollToTop();
     });
 }

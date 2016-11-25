@@ -50,5 +50,7 @@ function demotywatory(ctx) {
 
         //Initialize galleries
         createGalleries();
+
+        scrollToTop();
     });
 }
