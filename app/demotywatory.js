@@ -1,9 +1,12 @@
-var demotywatoryVideoMemeTemplate = '<div class="post demot-frame">' +
+var demotywatoryVideoMemeTemplate = '<div class="post">' +
+    '<div class="demot-frame">' +
     '<a href="{{ url }}">' +
     '<video autoplay controls loop><source src="{{ content.url }}"></video>' +
     '<span class="demot-title">{{ title }}</span>' +
     '<span class="demot-caption">{{ description }}</span>' +
     '</a>' +
+    '</div>' +
+    '<div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div>' +
 '</div>';
 
 function demotywatory(ctx) {

@@ -1,4 +1,12 @@
-body {
+body, ul {
+    margin: 0;
+}
+
+.meta {
+    margin: 5px;
+}
+
+div.post p {
     margin: 0;
 }
 
