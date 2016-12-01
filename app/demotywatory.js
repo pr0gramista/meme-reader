@@ -1,7 +1,7 @@
 var demotywatoryVideoMemeTemplate = '<div class="post">' +
     '<div class="demot-frame">' +
     '<a href="{{ url }}">' +
-    '<video autoplay controls loop><source src="{{ content.url }}"></video>' +
+    '<video muted autoplay controls loop><source src="{{ content.url }}"></video>' +
     '<span class="demot-title">{{ title }}</span>' +
     '<span class="demot-caption">{{ description }}</span>' +
     '</a>' +

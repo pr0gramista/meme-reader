@@ -34,7 +34,7 @@ function make_classes(classToExist) {
 //Basic templates
 var imageMemeTemplate = '<div class="post"><h2><a href="{{ url }}">{{ title }}</a></h2><img src="{{ content.url }}"><div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div></div>';
 var demotywatoryImageMemeTemplate = '<div class="post"><a href="{{ url }}"><img src="{{ content.url }}"></a><div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div></div>';
-var videoMemeTemplate = '<div class="post"><h2><a href="{{ url }}">{{ title }}</a></h2><video autoplay controls loop><source src="{{ content.url }}"></video><div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div></div>';
+var videoMemeTemplate = '<div class="post"><h2><a href="{{ url }}">{{ title }}</a></h2><video muted autoplay controls loop><source src="{{ content.url }}"></video><div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div></div>';
 var galleryMemeTemplate = '<div class="post"><h2><a href="{{ url }}">{{ title }}</a></h2>' +
     '<ul class="gallery">' +
     '<button class="btn btn-gallery-nav btn-gallery-nav-left">' +
