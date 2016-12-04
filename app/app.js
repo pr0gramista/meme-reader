@@ -13,7 +13,7 @@ function scrollToTop() {
     $("html, body").animate({ scrollTop: 0 }, "slow");
 }
 
-var classes = ['kwejk', 'demotywatory', 'mistrzowie', 'thecodinglove'];
+var classes = ['default', 'kwejk', 'demotywatory', 'mistrzowie', 'thecodinglove'];
 function make_classes(classToExist) {
     var body = $('body');
     classes.forEach(function(value, index, next) {
@@ -80,15 +80,39 @@ page('/demotywatory/:id', demotywatory);
 page('/demotywatory', demotywatory);
 page('/kwejk/:id', kwejk);
 page('/kwejk', kwejk);
+page('/', index);
 page('*', none);
 
 //Hashbang is optional, but I recommend using it.
 page({ hashbang: true });
 
 function index() {
-	//still need to do something here
+    make_classes('default');
+	$('#content').html('<div class="chrismas-tree"><pre>' +
+'    *             ,' + '<br />' +
+'                _/^\\_' + '<br />' +
+'               <     >' +'<br />' +
+'*               /.-.\\         *' +'<br />' +
+'       *        `/&\\`                   *' +'<br />' +
+'               ,@.*;@,' +'<br />' +
+'              /_o.I %_\\   *' +'<br />' +
+' *           (`\'--:o(_@;' +'<br />' +
+'            /`;--.,__ `\')             *' +'<br />' +
+'           ;@`o % O,*`\'`&' +'<br />' +
+'     *    (`\'--)_@ ;o %\'()\\      *' +'<br />' +
+'          /`;--._`\'\'--._O\'@;' +'<br />' +
+'         /&*,()~o`;-.,_ `""`)' +'<br />' +
+'*          /`,@ ;+& () o*`;-\';' +'<br />' +
+'        (`""--.,_0 +% @\' &()\'' +'<br />' +
+'        /-.,_    ``\'\'--....-\'`)  *' +'<br />' +
+'   *    /@%;o`:;\'--,.__   __.\'' +'<br />' +
+'       ;*,&(); @ % &^;~`"`o;@();         *'+'<br />' +
+'       /(); o^~; & ().o@*&`;&%O\'' +'<br />' +
+'       `"="==""==,,,.,="=="==="`' +'<br />' +
+'__.----.(\-\'\'====---...___...-----._' +'<br /></pre></div>');
 }
 
 function none() {
-	//still need to do something here
+    make_classes('default');
+	$('#content').html('There is nothing here!');
 }
