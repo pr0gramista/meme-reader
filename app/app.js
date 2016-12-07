@@ -26,6 +26,10 @@ function getURL(root, page) {
 var app = angular.module("meme-reader", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
+    .when("/", {
+        templateUrl : "default.html",
+        controller : "defaultController"
+    })
     .when("/kwejk", {
         templateUrl : "kwejk.html",
         controller : "siteController",
@@ -65,6 +69,9 @@ app.config(function($routeProvider) {
         templateUrl : "demotywatory.html",
         controller : "siteController",
         site: "demotywatory"
+    })
+    .otherwise({
+      redirectTo:'/'
     });
 });
 app.controller("siteController", function ($scope, $route, $routeParams, $http) {
@@ -89,4 +96,7 @@ app.controller("siteController", function ($scope, $route, $routeParams, $http) 
     $http.get(url).then(function(response) {
         $scope.data = response.data;
     });
+});
+app.controller("defaultController", function ($scope) {
+    make_classes("default");
 });
