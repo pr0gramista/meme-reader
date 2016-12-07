@@ -8,12 +8,12 @@ function make_classes(classToExist) {
             body.removeClass(value);
     });
 
-    $('a[href="kwejk"]').toggleClass("selected", false);
-    $('a[href="demotywatory"]').toggleClass("selected", false);
-    $('a[href="mistrzowie"]').toggleClass("selected", false);
-    $('a[href="thecodinglove"]').toggleClass("selected", false);
+    $('a[href="#kwejk"]').toggleClass("selected", false);
+    $('a[href="#demotywatory"]').toggleClass("selected", false);
+    $('a[href="#mistrzowie"]').toggleClass("selected", false);
+    $('a[href="#thecodinglove"]').toggleClass("selected", false);
 
-    $('a[href="' + classToExist + '"]').toggleClass("selected", true);
+    $('a[href="#' + classToExist + '"]').toggleClass("selected", true);
 }
 
 function getURL(root, page) {
