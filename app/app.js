@@ -1,18 +1,3 @@
-//Utils
-function get_url(base, ctx) {
-    var id = ctx.params.id;
-    var json;
-    var url;
-    if(typeof id !== 'undefined')
-        return API + '/' + base + '/' + id;
-    else
-        return API + '/' + base + '/';
-}
-
-function scrollToTop() {
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-}
-
 var classes = ['default', 'kwejk', 'demotywatory', 'mistrzowie', 'thecodinglove'];
 function make_classes(classToExist) {
     var body = $('body');
@@ -31,88 +16,77 @@ function make_classes(classToExist) {
     $('a[href="' + classToExist + '"]').toggleClass("selected", true);
 }
 
-//Basic templates
-var imageMemeTemplate = '<div class="post"><h2><a href="{{ url }}">{{ title }}</a></h2><img src="{{ content.url }}"><div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div></div>';
-var demotywatoryImageMemeTemplate = '<div class="post"><a href="{{ url }}"><img src="{{ content.url }}"></a><div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div></div>';
-var videoMemeTemplate = '<div class="post"><h2><a href="{{ url }}">{{ title }}</a></h2><video muted autoplay controls loop><source src="{{ content.url }}"></video><div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div></div>';
-var galleryMemeTemplate = '<div class="post"><h2><a href="{{ url }}">{{ title }}</a></h2>' +
-    '<ul class="gallery">' +
-    '<button class="btn btn-gallery-nav btn-gallery-nav-left">' +
-    '<i class="fa fa-angle-left" aria-hidden="true"></i>' +
-    '</button>' +
-    '<button class="btn btn-gallery-nav btn-gallery-nav-right">' +
-    '<i class="fa fa-angle-right" aria-hidden="true"></i>' +
-    '</button>' +
-    '{{ #content.urls }}' +
-    '<li>' +
-    '<img src="{{ . }}">' +
-    '</li>' +
-    '{{ /content.urls }}' +
-    '</ul>' +
-    '<div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div>' +
-    '</div>';
-var captionedGalleryMemeTemplate = '<div class="post">' +
-    '<ul class="gallery">' +
-    '<button class="btn btn-gallery-nav btn-gallery-nav-left">' +
-    '<i class="fa fa-angle-left" aria-hidden="true"></i>' +
-    '</button>' +
-    '<button class="btn btn-gallery-nav btn-gallery-nav-right">' +
-    '<i class="fa fa-angle-right" aria-hidden="true"></i>' +
-    '</button>' +
-    '{{ #content.images }}' +
-    '<li>' +
-    '<h4>{{ title}}</h4>' +
-    '<img src="{{ url }}">' +
-    '<p>{{ caption }}' +
-    '</li>' +
-    '{{ /content.images }}' +
-    '</ul>' +
-    '<div class="meta"><div class="comments"><a href="{{ url }}">Komentarzy: {{ comments }}</a></div></div>' +
-    '</div>';
-
-//Setup routing
-page.base(BASE_URL);
-page('/thecodinglove/:id', thecodinglove);
-page('/thecodinglove', thecodinglove);
-page('/mistrzowie/:id', mistrzowie);
-page('/mistrzowie', mistrzowie);
-page('/demotywatory/:id', demotywatory);
-page('/demotywatory', demotywatory);
-page('/kwejk/:id', kwejk);
-page('/kwejk', kwejk);
-page('/', index);
-page('*', none);
-
-//Hashbang is optional, but I recommend using it.
-page({ hashbang: true });
-
-function index() {
-    make_classes('default');
-	$('#content').html('<div class="chrismas-tree"><pre>' +
-'    *             ,' + '<br />' +
-'                _/^\\_' + '<br />' +
-'               <     >' +'<br />' +
-'*               /.-.\\         *' +'<br />' +
-'       *        `/&\\`                   *' +'<br />' +
-'               ,@.*;@,' +'<br />' +
-'              /_o.I %_\\   *' +'<br />' +
-' *           (`\'--:o(_@;' +'<br />' +
-'            /`;--.,__ `\')             *' +'<br />' +
-'           ;@`o % O,*`\'`&' +'<br />' +
-'     *    (`\'--)_@ ;o %\'()\\      *' +'<br />' +
-'          /`;--._`\'\'--._O\'@;' +'<br />' +
-'         /&*,()~o`;-.,_ `""`)' +'<br />' +
-'*          /`,@ ;+& () o*`;-\';' +'<br />' +
-'        (`""--.,_0 +% @\' &()\'' +'<br />' +
-'        /-.,_    ``\'\'--....-\'`)  *' +'<br />' +
-'   *    /@%;o`:;\'--,.__   __.\'' +'<br />' +
-'       ;*,&(); @ % &^;~`"`o;@();         *'+'<br />' +
-'       /(); o^~; & ().o@*&`;&%O\'' +'<br />' +
-'       `"="==""==,,,.,="=="==="`' +'<br />' +
-'__.----.(\-\'\'====---...___...-----._' +'<br /></pre></div>');
+function getURL(root, page) {
+    if(page !== undefined)
+        return API + '/' + root + '/' + page;
+    else
+        return API + '/' + root + '/';
 }
 
-function none() {
-    make_classes('default');
-	$('#content').html('There is nothing here!');
-}
+var app = angular.module("meme-reader", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/kwejk", {
+        templateUrl : "kwejk.html",
+        controller : "siteController",
+        site: "kwejk"
+    })
+    .when("/kwejk/:page", {
+        templateUrl : "kwejk.html",
+        controller : "siteController",
+        site: "kwejk"
+    })
+    .when("/mistrzowie", {
+        templateUrl : "mistrzowie.html",
+        controller : "siteController",
+        site: "mistrzowie"
+    })
+    .when("/mistrzowie/:page", {
+        templateUrl : "mistrzowie.html",
+        controller : "siteController",
+        site: "mistrzowie"
+    })
+    .when("/thecodinglove", {
+        templateUrl : "thecodinglove.html",
+        controller : "siteController",
+        site: "thecodinglove"
+    })
+    .when("/thecodinglove/:page", {
+        templateUrl : "thecodinglove.html",
+        controller : "siteController",
+        site: "thecodinglove"
+    })
+    .when("/demotywatory", {
+        templateUrl : "demotywatory.html",
+        controller : "siteController",
+        site: "demotywatory"
+    })
+    .when("/demotywatory/:page", {
+        templateUrl : "demotywatory.html",
+        controller : "siteController",
+        site: "demotywatory"
+    });
+});
+app.controller("siteController", function ($scope, $route, $routeParams, $http) {
+    var site = $route.current.site;
+    var page = $routeParams.page;
+    var url = getURL(site, page);
+
+    make_classes(site);
+
+    $scope.nextSlide = function(post) {
+        post.currentSlide += 1;
+        if(post.currentSlide >= post.content.urls.length)
+            post.currentSlide = 0;
+    };
+
+    $scope.previousSlide = function(post) {
+        post.currentSlide -= 1;
+        if(post.currentSlide < 0)
+            post.currentSlide = post.content.urls.length - 1;
+    };
+
+    $http.get(url).then(function(response) {
+        $scope.data = response.data;
+    });
+});
