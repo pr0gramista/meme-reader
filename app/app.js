@@ -83,14 +83,30 @@ app.controller("siteController", function ($scope, $route, $routeParams, $http) 
 
     $scope.nextSlide = function(post) {
         post.currentSlide += 1;
-        if(post.currentSlide >= post.content.urls.length)
+
+        if(post.slides === undefined) {
+            if(post.content.urls !== undefined)
+                post.slides = post.content.urls.length;
+            else if (post.content.images !== undefined)
+                post.slides = post.content.images.length;
+        }
+
+        if(post.currentSlide >= post.slides)
             post.currentSlide = 0;
     };
 
     $scope.previousSlide = function(post) {
         post.currentSlide -= 1;
+
+        if(post.slides === undefined) {
+            if(post.content.urls !== undefined)
+                post.slides = post.content.urls.length;
+            else if (post.content.images !== undefined)
+                post.slides = post.content.images.length;
+        }
+
         if(post.currentSlide < 0)
-            post.currentSlide = post.content.urls.length - 1;
+            post.currentSlide = post.slides - 1;
     };
 
     $http.get(url).then(function(response) {
