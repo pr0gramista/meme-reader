@@ -1,4 +1,4 @@
-var classes = ['default', 'kwejk', 'demotywatory', 'mistrzowie', 'thecodinglove'];
+var classes = ['default', 'kwejk', 'demotywatory', 'mistrzowie', 'thecodinglove', 'jbzd'];
 function make_classes(classToExist) {
     var body = $('body');
     classes.forEach(function(value, index, next) {
@@ -12,6 +12,7 @@ function make_classes(classToExist) {
     $('a[href="#demotywatory"]').toggleClass("selected", false);
     $('a[href="#mistrzowie"]').toggleClass("selected", false);
     $('a[href="#thecodinglove"]').toggleClass("selected", false);
+    $('a[href="#jbzd"]').toggleClass("selected", false);
 
     $('a[href="#' + classToExist + '"]').toggleClass("selected", true);
 }
@@ -69,6 +70,16 @@ app.config(function($routeProvider) {
         templateUrl : "demotywatory.html",
         controller : "siteController",
         site: "demotywatory"
+    })
+    .when("/jbzd", {
+        templateUrl : "jbzd.html",
+        controller : "siteController",
+        site: "jbzd"
+    })
+    .when("/jbzd/:page", {
+        templateUrl : "jbzd.html",
+        controller : "siteController",
+        site: "jbzd"
     })
     .otherwise({
       redirectTo:'/'
