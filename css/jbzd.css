@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width:770px) {
     .jbzd #content {
-        padding: 10px 30px;
+        padding: 10px 10px;
     }
 
 	.jbzd .btn-gallery-nav {

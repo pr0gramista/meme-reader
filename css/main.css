@@ -11,7 +11,7 @@ div.post p {
 }
 
 .container {
-    width: 95%;
+    width: 97%;
     max-width: 600px;
     margin: auto;
 }
@@ -21,7 +21,7 @@ div.post p {
 }
 
 #content {
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
 .post img,
