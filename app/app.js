@@ -13,6 +13,7 @@ function make_classes(classToExist) {
     $('a[href="#mistrzowie"]').toggleClass("selected", false);
     $('a[href="#thecodinglove"]').toggleClass("selected", false);
     $('a[href="#jbzd"]').toggleClass("selected", false);
+    $('a[href="#9gag"]').toggleClass("selected", false);
 
     $('a[href="#' + classToExist + '"]').toggleClass("selected", true);
 }
