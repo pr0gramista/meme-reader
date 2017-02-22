@@ -1,4 +1,4 @@
-var classes = ['default', 'kwejk', 'demotywatory', 'mistrzowie', 'thecodinglove', 'jbzd'];
+var classes = ['default', 'kwejk', 'demotywatory', 'mistrzowie', 'thecodinglove', 'jbzd', '9gag'];
 function make_classes(classToExist) {
     var body = $('body');
     classes.forEach(function(value, index, next) {
@@ -80,6 +80,16 @@ app.config(function($routeProvider) {
         templateUrl : "jbzd.html",
         controller : "siteController",
         site: "jbzd"
+    })
+    .when("/9gag", {
+        templateUrl : "9gag.html",
+        controller : "siteController",
+        site: "9gag"
+    })
+    .when("/9gag/:page", {
+        templateUrl : "9gag.html",
+        controller : "siteController",
+        site: "9gag"
     })
     .otherwise({
       redirectTo:'/'
