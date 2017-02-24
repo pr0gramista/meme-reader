@@ -99,3 +99,15 @@ ul.gallery > li.active {
     text-align: center;
     font-family: 'Raleway', sans-serif;
 }
+
+.preview-text {
+  padding-top: 2px;
+  width: 100%;
+  text-align: center;
+  border-top: 5px dotted black;
+}
+
+.preview-text a {
+  color: inherit;
+  text-decoration: none;
+}
