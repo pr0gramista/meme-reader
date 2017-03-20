@@ -8,10 +8,7 @@ body.kwejk {
 /* Navigation */
 .kwejk nav#main-nav {
     background-color: #fac701;
-}
-
-.kwejk nav#main-nav li {
-    padding: 14px;
+    border: none;
 }
 
 .kwejk nav#main-nav a {

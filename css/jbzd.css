@@ -10,10 +10,7 @@ body.jbzd {
 /* Navigation */
 .jbzd nav#main-nav {
     background-color: rgb(192, 64, 64);
-}
-
-.jbzd nav#main-nav li {
-    padding: 14px;
+    border: none;
 }
 
 .jbzd nav#main-nav a {

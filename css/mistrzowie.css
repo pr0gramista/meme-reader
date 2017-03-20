@@ -12,10 +12,6 @@ body.mistrzowie {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.mistrzowie nav#main-nav li {
-    padding: 14px;
-}
-
 .mistrzowie nav#main-nav a {
     color: #333;
 }

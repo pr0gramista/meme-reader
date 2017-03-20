@@ -10,6 +10,14 @@ div.post p {
     margin: 0;
 }
 
+.navbar {
+  border-radius: 0;
+}
+
+.navbar-header {
+  border: none;
+}
+
 .container {
     width: 97%;
     max-width: 600px;
@@ -37,17 +45,6 @@ div.post p {
 nav#main-nav a {
     color: #000;
     text-decoration: none;
-}
-
-nav#main-nav ul {
-    list-style: none;
-    text-align: center;
-    margin: 0;
-}
-
-nav#main-nav li {
-    display: inline-block;
-    padding: 14px;
 }
 
 /* Gallery */
