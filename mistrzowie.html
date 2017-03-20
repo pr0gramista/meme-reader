@@ -10,7 +10,7 @@
             <span class="demot-caption">{{ post.description }}</span>
         </a>
     </div>
-    <ul ng-if="post.content.contentType == 'GALLERY'" class="gallery" ng-init="post.currentSlide = 0">
+    <ul ng-if="post.content.contentType == 'GALLERY'" class="gallery">
         <button class="btn btn-gallery-nav btn-gallery-nav-left" ng-click="previousSlide(post)">
             <i class="fa fa-angle-left" aria-hidden="true"></i>
         </button>

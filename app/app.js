@@ -131,8 +131,48 @@ app.controller("siteController", function ($scope, $route, $routeParams, $http) 
             post.currentSlide = post.slides - 1;
     };
 
+    $(document).keydown(function (event) {
+      if(event.keyCode == 39) //Right arrow
+      {
+        $scope.keyboardNextSlide();
+      }
+      else if(event.keyCode == 37) { //Left arrow
+        $scope.keyboardPreviousSlide();
+      }
+    })
+
+    $scope.findPost = function () {
+      var posts = $(".post");
+      for (var i = 0; i < posts.length; i++) {
+        if(posts[i].offsetTop > window.scrollY)
+        {
+          return i;
+        }
+      }
+      return posts.length - 1;
+    }
+
+    $scope.keyboardNextSlide = function () {
+      var postID = $scope.findPost();
+      $scope.nextSlide($scope.data.memes[postID]);
+      $scope.$apply();
+    }
+
+    $scope.keyboardPreviousSlide = function () {
+      var postID = $scope.findPost();
+      $scope.previousSlide($scope.data.memes[postID]);
+      $scope.$apply();
+    }
+
     $http.get(url).then(function(response) {
         $scope.data = response.data;
+        for (var i = 0; i < $scope.data.memes.length; i++) {
+          var meme = $scope.data.memes[i];
+          if(meme.contentType == "GALLERY" || meme.contentType == "CAPTIONED_GALLERY") {
+            meme.slides = meme.content.urls.length;
+            meme.currentSlide = 0;
+          }
+        }
     });
 });
 app.controller("defaultController", function ($scope) {

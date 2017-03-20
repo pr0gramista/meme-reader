@@ -4,7 +4,7 @@
     <video ng-if="post.content.contentType == 'VIDEO'" muted autoplay controls loop>
         <source ng-src="{{ post.content.url }}">
     </video>
-    <ul ng-if="post.content.contentType == 'GALLERY'" class="gallery" ng-init="post.currentSlide = 0">
+    <ul ng-if="post.content.contentType == 'GALLERY'" class="gallery">
         <button class="btn btn-gallery-nav btn-gallery-nav-left" ng-click="previousSlide(post)">
             <i class="fa fa-angle-left" aria-hidden="true"></i>
         </button>
