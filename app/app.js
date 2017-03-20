@@ -96,7 +96,7 @@ app.config(function($routeProvider) {
       redirectTo:'/'
     });
 });
-app.controller("siteController", function ($scope, $route, $routeParams, $http) {
+app.controller("siteController", function ($scope, $route, $routeParams, $location, $http) {
     var site = $route.current.site;
     var page = $routeParams.page;
     var url = getURL(site, page);
@@ -139,7 +139,17 @@ app.controller("siteController", function ($scope, $route, $routeParams, $http) 
       else if(event.keyCode == 37) { //Left arrow
         $scope.keyboardPreviousSlide();
       }
+      else if(event.keyCode == 32) //Space
+      {
+        console.log("halo?");
+        $scope.goToNextPage();
+      }
     })
+
+    $scope.goToNextPage = function () {
+        $location.path($scope.data.nextPage);
+        $scope.$apply();
+    }
 
     $scope.findPost = function () {
       var posts = $(".post");
