@@ -141,7 +141,6 @@ app.controller("siteController", function ($scope, $route, $routeParams, $locati
       }
       else if(event.keyCode == 32) //Space
       {
-        console.log("halo?");
         $scope.goToNextPage();
       }
     })
@@ -178,8 +177,11 @@ app.controller("siteController", function ($scope, $route, $routeParams, $locati
         $scope.data = response.data;
         for (var i = 0; i < $scope.data.memes.length; i++) {
           var meme = $scope.data.memes[i];
-          if(meme.contentType == "GALLERY" || meme.contentType == "CAPTIONED_GALLERY") {
-            meme.slides = meme.content.urls.length;
+          if(meme.content.contentType == "GALLERY" || meme.content.contentType == "CAPTIONED_GALLERY") {
+            if(meme.content.urls !== undefined)
+                meme.slides = meme.content.urls.length;
+            else if (meme.content.images !== undefined)
+                meme.slides = meme.content.images.length;
             meme.currentSlide = 0;
           }
         }
