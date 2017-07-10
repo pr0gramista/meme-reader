@@ -92,6 +92,16 @@ app.config(function($routeProvider) {
         controller : "siteController",
         site: "9gag"
     })
+    .when("/9gagnsfw", {
+        templateUrl : "9gag.html",
+        controller : "siteController",
+        site: "9gagnsfw"
+    })
+    .when("/9gagnsfw/:page", {
+        templateUrl : "9gag.html",
+        controller : "siteController",
+        site: "9gagnsfw"
+    })
     .otherwise({
       redirectTo:'/'
     });
@@ -101,7 +111,11 @@ app.controller("siteController", function ($scope, $route, $routeParams, $locati
     var page = $routeParams.page;
     var url = getURL(site, page);
 
-    make_classes(site);
+    if (site != '9gagnsfw') {
+      make_classes(site);
+    } else {
+      make_classes('9gag')
+    }
 
     $scope.nextSlide = function(post) {
         post.currentSlide += 1;
