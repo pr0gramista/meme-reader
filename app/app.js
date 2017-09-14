@@ -20,7 +20,7 @@ function make_classes(classToExist) {
 
 function getURL(root, page) {
     if(page !== undefined)
-        return API + '/' + root + '/' + page;
+        return API + '/' + root + '/page/' + page;
     else
         return API + '/' + root + '/';
 }
