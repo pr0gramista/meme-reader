@@ -37,9 +37,14 @@ app.config(function($routeProvider) {
         controller : "siteController",
         site: "kwejk"
     })
-    .when("/kwejk/:page", {
+    .when("/kwejk/page/:page", {
         templateUrl : "kwejk.html",
         controller : "siteController",
+        site: "kwejk"
+    })
+    .when("/kwejk/:id", {
+        templateUrl : "kwejk_single.html",
+        controller : "singleMemeController",
         site: "kwejk"
     })
     .when("/mistrzowie", {
@@ -47,7 +52,7 @@ app.config(function($routeProvider) {
         controller : "siteController",
         site: "mistrzowie"
     })
-    .when("/mistrzowie/:page", {
+    .when("/mistrzowie/page/:page", {
         templateUrl : "mistrzowie.html",
         controller : "siteController",
         site: "mistrzowie"
@@ -57,7 +62,7 @@ app.config(function($routeProvider) {
         controller : "siteController",
         site: "thecodinglove"
     })
-    .when("/thecodinglove/:page", {
+    .when("/thecodinglove/page/:page", {
         templateUrl : "thecodinglove.html",
         controller : "siteController",
         site: "thecodinglove"
@@ -67,9 +72,14 @@ app.config(function($routeProvider) {
         controller : "siteController",
         site: "demotywatory"
     })
-    .when("/demotywatory/:page", {
+    .when("/demotywatory/page/:page", {
         templateUrl : "demotywatory.html",
         controller : "siteController",
+        site: "demotywatory"
+    })
+    .when("/demotywatory/:id", {
+        templateUrl : "demotywatory_single.html",
+        controller : "singleMemeController",
         site: "demotywatory"
     })
     .when("/jbzd", {
@@ -77,9 +87,14 @@ app.config(function($routeProvider) {
         controller : "siteController",
         site: "jbzd"
     })
-    .when("/jbzd/:page", {
+    .when("/jbzd/page/:page", {
         templateUrl : "jbzd.html",
         controller : "siteController",
+        site: "jbzd"
+    })
+    .when("/jbzd/:id", {
+        templateUrl : "jbzd_single.html",
+        controller : "singleMemeController",
         site: "jbzd"
     })
     .when("/9gag", {
@@ -87,7 +102,7 @@ app.config(function($routeProvider) {
         controller : "siteController",
         site: "9gag"
     })
-    .when("/9gag/:page", {
+    .when("/9gag/page/:page", {
         templateUrl : "9gag.html",
         controller : "siteController",
         site: "9gag"
@@ -97,7 +112,7 @@ app.config(function($routeProvider) {
         controller : "siteController",
         site: "9gagnsfw"
     })
-    .when("/9gagnsfw/:page", {
+    .when("/9gagnsfw/page/:page", {
         templateUrl : "9gag.html",
         controller : "siteController",
         site: "9gagnsfw"
@@ -201,6 +216,78 @@ app.controller("siteController", function ($scope, $route, $routeParams, $locati
         }
     });
 });
+
+app.controller("singleMemeController", function ($scope, $route, $routeParams, $location, $http) {
+  var site = $route.current.site;
+  var id = $routeParams.id;
+  var url = API + '/' + site + '/' + id;
+
+  if (site != '9gagnsfw') {
+    make_classes(site);
+  } else {
+    make_classes('9gag')
+  }
+
+  $scope.nextSlide = function() {
+      $scope.post.currentSlide += 1;
+
+      if($scope.post.slides === undefined) {
+          if($scope.post.content.urls !== undefined)
+              $scope.post.slides = $scope.post.content.urls.length;
+          else if ($scope.post.content.images !== undefined)
+              $scope.post.slides = $scope.post.content.images.length;
+      }
+
+      if($scope.post.currentSlide >= $scope.post.slides)
+          $scope.post.currentSlide = 0;
+  };
+
+  $scope.previousSlide = function() {
+      $scope.post.currentSlide -= 1;
+
+      if($scope.post.slides === undefined) {
+          if($scope.post.content.urls !== undefined)
+              $scope.post.slides = $scope.post.content.urls.length;
+          else if ($scope.post.content.images !== undefined)
+              $scope.post.slides = $scope.post.content.images.length;
+      }
+
+      if($scope.post.currentSlide < 0)
+          $scope.post.currentSlide = $scope.post.slides - 1;
+  };
+
+  $(document).keydown(function (event) {
+    if(event.keyCode == 39) //Right arrow
+    {
+      $scope.keyboardNextSlide();
+    }
+    else if(event.keyCode == 37) { //Left arrow
+      $scope.keyboardPreviousSlide();
+    }
+  })
+
+  $scope.keyboardNextSlide = function () {
+    $scope.nextSlide();
+    $scope.$apply();
+  }
+
+  $scope.keyboardPreviousSlide = function () {
+    $scope.previousSlide();
+    $scope.$apply();
+  }
+
+  $http.get(url).then(function (response) {
+    $scope.post = response.data;
+    if($scope.post.content.contentType == "GALLERY" || $scope.post.content.contentType == "CAPTIONED_GALLERY") {
+      if($scope.post.content.urls !== undefined)
+          $scope.post.slides = $scope.post.content.urls.length;
+      else if ($scope.post.content.images !== undefined)
+          $scope.post.slides = $scope.post.content.images.length;
+      $scope.post.currentSlide = 0;
+    }
+  })
+});
+
 app.controller("defaultController", function ($scope) {
     make_classes("default");
 });
