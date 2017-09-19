@@ -88,6 +88,18 @@ body.demotywatory {
 
 }
 
+.demotywatory .navbar-toggle {
+  border: 1px solid #CCC;
+  transition: background-color 0.5s ease-in-out;
+}
+.demotywatory .navbar-toggle:hover,
+.demotywatory .navbar-toggle:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.demotywatory .navbar-toggle .icon-bar {
+  background-color: #CCC;
+}
+
 @media (max-width:770px) {
 	.demot-title {
 	    display: block;

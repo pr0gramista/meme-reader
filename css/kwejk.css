@@ -52,6 +52,21 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
 }
 
+.kwejk .navbar-toggle {
+  border: 1px solid #333;
+  transition: background-color 0.5s ease-in-out;
+}
+.kwejk .navbar-toggle:hover,
+.kwejk .navbar-toggle:focus {
+  background-color: #E1AE00;
+}
+.kwejk .navbar-toggle .icon-bar {
+  background-color: #333;
+}
+.kwejk .navbar-collapse {
+  border-color: #333;
+}
+
 @media (max-width:770px) {
     .kwejk #content {
         padding: 10px 10px;

@@ -55,6 +55,21 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
 }
 
+.\000039gag .navbar-toggle {
+  border: 1px solid #DDD;
+  transition: background-color 0.5s ease-in-out;
+}
+.\000039gag .navbar-toggle:hover,
+.\000039gag .navbar-toggle:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.\000039gag .navbar-toggle .icon-bar {
+  background-color: #DDD;
+}
+.\000039gag .navbar-collapse {
+  border-color: #DDD;
+}
+
 @media (max-width:770px) {
     .\000039gag #content {
         padding: 10px 10px;
