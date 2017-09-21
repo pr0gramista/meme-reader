@@ -16,6 +16,11 @@
             <img ng-src="{{ url }}">
         </li>
     </ul>
+    <div class="meta">
+        <div class="comments">
+            <a ng-href="#{{ post.viewUrl }}">Komentarzy: {{ post.commentAmount }}</a>
+        </div>
+    </div>
     <small ng-if="post.viewUrl != null"><a ng-href="{{ post.url }}">Source</a></small>
 </div>
 <div class="next-page">
