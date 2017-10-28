@@ -11,11 +11,11 @@ Client page make request to API endpoint ([memes-api](https://github.com/Poprost
 
 ### Development
 
-Install node:
+1. Install node:
 `https://nodejs.org/`
-Install dependencies:
+2. Install dependencies:
 `npm install`
-Connect:
-`gulp serve`
-Compile sass:
+3. Compile sass:
 `gulp compile-sass`
+4. Serve:
+`gulp serve`
