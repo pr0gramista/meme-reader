@@ -17,3 +17,5 @@ Install dependencies:
 `npm install`
 Connect:
 `gulp serve`
+Compile sass:
+`gulp compile-sass`
