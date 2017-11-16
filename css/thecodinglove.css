@@ -18,7 +18,8 @@ body.thecodinglove {
     .thecodinglove .post video {
       width: auto;
       display: block;
-      margin: auto; }
+      margin: auto;
+      max-width: 100%; }
   .thecodinglove nav#main-nav {
     background-color: #FFF;
     border-bottom: 1px dashed #333; }
