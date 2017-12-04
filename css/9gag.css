@@ -14,6 +14,9 @@ body.\000039gag {
     text-decoration: underline;
     font-size: 18px; }
 
+.\000039gag .source-link {
+  font-family: "Courier New"; }
+
 .\000039gag .container {
   max-width: 700px; }
 
