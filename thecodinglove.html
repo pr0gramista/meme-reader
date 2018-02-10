@@ -1,3 +1,9 @@
+<div class="error" ng-if="error">
+    An error occured, please try again.  
+</div>
+<div class="loading" ng-if="loading">
+    ...
+</div>
 <div ng-repeat="post in data.memes" class="post">
     <span class="thecodinglove-title">/* {{ post.title }} */</span>
     <img ng-src="{{ post.content.url }}" />

@@ -202,8 +202,11 @@ app.controller("siteController", function ($scope, $route, $routeParams, $locati
       $scope.$apply();
     }
 
+    $scope.error = null;
+    $scope.loading = true;
     $http.get(url).then(function(response) {
         $scope.data = response.data;
+        $scope.loading = false;
         for (var i = 0; i < $scope.data.memes.length; i++) {
           var meme = $scope.data.memes[i];
           if(meme.content.contentType == "GALLERY" || meme.content.contentType == "CAPTIONED_GALLERY") {
@@ -214,6 +217,9 @@ app.controller("siteController", function ($scope, $route, $routeParams, $locati
             meme.currentSlide = 0;
           }
         }
+    }, function(response) {
+        $scope.error = response;
+        $scope.loading = false;
     });
 });
 
