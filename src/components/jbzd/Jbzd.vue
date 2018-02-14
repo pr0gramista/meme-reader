@@ -10,7 +10,19 @@
     </div>
 
     <div v-if="memes" class="content">
-      <h2>{{ memes }}</h2>
+      <article class="meme" v-for="meme in memes" :key="meme.url">
+        <a :href="'#' + meme.viewUrl"><h1>{{ meme.title }}</h1></a>
+        <div>
+          <img v-if="meme.content.contentType == 'IMAGE'" :src="meme.content.url">
+          <video v-if="meme.content.contentType == 'VIDEO'" muted autoplay controls loop>
+            <source :src="meme.content.url">
+          </video>
+        </div>
+        <div class="meta">
+          <a class="comments" :href="'#' + meme.viewUrl">Komentarzy: {{ meme.commentAmount }}</a>
+          <a class="source" :href="meme.url">Źródło</a>
+        </div>
+      </article>
     </div>
   </div>
 </template>
@@ -26,3 +38,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .meme {
+    margin: 10px;
+  }
+</style>

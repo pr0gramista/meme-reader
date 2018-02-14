@@ -1,13 +1,11 @@
 <template>
   <div>
     Hello
+    <a href="/#/jbzd">Jbzd</a>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import { API } from '@/config.js'
-
 export default {
   name: 'Home'
 }
