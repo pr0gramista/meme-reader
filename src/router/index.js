@@ -14,7 +14,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HomePage',
+      name: 'Home',
       component: Home
     }
   ].concat(jbzdRoutes)

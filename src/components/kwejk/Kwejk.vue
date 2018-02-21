@@ -9,7 +9,7 @@
       {{ error }}
     </div>
 
-    <div v-if="memes" class="content">
+    <div v-if="memes" class="memes">
       <article class="meme" v-for="meme in memes" :key="meme.url">
         <a :href="'#' + meme.viewUrl"><h1>{{ meme.title }}</h1></a>
         <div>

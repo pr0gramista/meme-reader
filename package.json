@@ -13,7 +13,8 @@
   "dependencies": {
     "axios": "^0.17.1",
     "vue": "^2.5.13",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

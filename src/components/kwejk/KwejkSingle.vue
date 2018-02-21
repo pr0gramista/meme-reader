@@ -16,7 +16,7 @@
           <video v-if="meme.content.contentType == 'VIDEO'" muted autoplay controls loop>
             <source :src="meme.content.url">
           </video>
-          <ul v-if="mesme.content.contentType == 'GALLERY'" class="gallery">
+          <ul v-if="meme.content.contentType == 'GALLERY'" class="gallery">
             <button class="btn btn-gallery-nav btn-gallery-nav-left" ng-click="previousSlide(post)">
                 <i class="fa fa-angle-left" aria-hidden="true"></i>
             </button>
