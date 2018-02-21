@@ -5,8 +5,10 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import LoadingErrorView from '@/components/LoadingErrorView.vue'
 
 Vue.use(Vuetify)
+Vue.component('loading-error', LoadingErrorView)
 
 Vue.config.productionTip = false
 

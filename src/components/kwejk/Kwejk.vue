@@ -1,13 +1,7 @@
 <template>
   <div>
     <h1>Kwejk</h1>
-    <div class="loading" v-if="loading">
-      Loading...
-    </div>
-
-    <div v-if="error" class="error">
-      {{ error }}
-    </div>
+    <loading-error :error="error" :loading="loading" />
 
     <div v-if="memes" class="memes">
       <article class="meme" v-for="meme in memes" :key="meme.url">

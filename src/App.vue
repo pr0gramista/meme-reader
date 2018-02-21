@@ -43,7 +43,7 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark app scroll-off-screen>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title><router-link to="/">Meme reader</router-link></v-toolbar-title>
+      <v-toolbar-title><router-link to="/" class="site-name">Meme reader</router-link></v-toolbar-title>
     </v-toolbar>
     <v-content>
       <v-container fluid>
@@ -73,5 +73,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+a.site-name {
+  text-decoration: none;
+  color: inherit;
+}
 </style>
