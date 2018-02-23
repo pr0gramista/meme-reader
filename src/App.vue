@@ -54,10 +54,10 @@
       <v-container fluid>
         <router-view></router-view>
       </v-container>
-    </v-content>
-    <v-footer color="indigo">
-      <span class="white--text">&copy; 2017</span>
+    <v-footer color="indigo darken-2 white--text" height="64">
+      <v-container>Made with hate to bloatware and adware. Brought to you by <a class="indigo--text text--lighten-3" href="https://github.com/pr0gramista/meme-reader">@pr0gramista</a></v-container>
     </v-footer>
+    </v-content>
   </v-app>
 </template>
 
