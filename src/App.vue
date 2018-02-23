@@ -19,6 +19,11 @@
             <v-list-tile-title>Kwejk</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile @click="go('jbzd')">
+          <v-list-tile-content>
+            <v-list-tile-title>Jbzd</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
         <v-list-tile @click="go('demotywatory')">
           <v-list-tile-content>
             <v-list-tile-title>Demotywatory</v-list-tile-title>
