@@ -15,7 +15,7 @@ export default {
   name: 'LoadingErrorView',
   props: {
     loading: Boolean,
-    error: Object
+    error: Error
   }
 }
 </script>

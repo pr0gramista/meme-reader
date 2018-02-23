@@ -46,7 +46,7 @@
         </v-list-tile>
         <v-list-tile>
           <v-list-tile-content>
-              <v-switch 
+              <v-switch
                 label="Dark mode"
                 v-model="darkMode">
               </v-switch>
