@@ -19,6 +19,7 @@ export default {
       loading: false,
       memes: null,
       error: null,
+      nextPage: null,
       page: this.$route.params.page
     }
   },
@@ -39,9 +40,15 @@ export default {
       this.error = null
       this.loading = true
 
+      this.$vuetify.goTo(0, {
+        duration: 500,
+        easing: 'easeInOutCubic'
+      })
+
       axios.get(url)
         .then((response) => {
           this.memes = response.data.memes
+          this.nextPage = response.data.nextPage
           this.loading = false
         })
         .catch((error) => {

@@ -17,6 +17,9 @@
         </div>
       </article>
     </div>
+    <div class="text-xs-center" v-if="nextPage">
+      <v-btn color="normal" large :to="nextPage">Następna strona</v-btn>
+    </div>
   </div>
 </template>
 <script>
