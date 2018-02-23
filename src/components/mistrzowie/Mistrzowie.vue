@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="site">
     <h1>Mistrzowie</h1>
     <loading-error :error="error" :loading="loading" />
 

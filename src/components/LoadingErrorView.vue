@@ -21,5 +21,7 @@ export default {
 </script>
 
 <style scoped>
-
+.loading {
+    text-align: center;
+}
 </style>

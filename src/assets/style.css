@@ -1,5 +1,11 @@
+.site {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .meme {
-    max-width: 500px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;

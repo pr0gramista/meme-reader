@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="site">
     <h1>9gag</h1>
     <loading-error :error="error" :loading="loading" />
 
