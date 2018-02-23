@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" :dark="darkMode">
     <v-navigation-drawer
       v-model="drawer"
       app
@@ -44,6 +44,14 @@
             <v-list-tile-title>9gag</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+              <v-switch 
+                label="Dark mode"
+                v-model="darkMode">
+              </v-switch>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark app scroll-off-screen>
@@ -65,7 +73,8 @@
 export default {
   name: 'App',
   data: () => ({
-    drawer: null
+    drawer: null,
+    darkMode: false
   }),
   props: {
     source: String
