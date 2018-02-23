@@ -25,6 +25,8 @@
         <div class="meta">
           <a class="comments" href="#">Komentarzy: {{ meme.commentAmount }}</a>
           <a class="source" :href="meme.url">Źródło</a>
+        </div>
+        <div class="comment-section">
           <div v-for="comment in meme.comments" :key="comment.content" class="comment">
             <div ng-if="comment.author != null" class="comment-author"><a :href="comment.author.profileUrl">{{ comment.author.name }}</a></div>
             <div class="comment-content">
