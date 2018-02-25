@@ -62,14 +62,13 @@
       <v-container>
         <router-view></router-view>
       </v-container>
-    <v-footer color="indigo darken-2 white--text" height="64">
-      <v-container>Made with hate to bloatware and adware. Brought to you by <a class="indigo--text text--lighten-3" href="https://github.com/pr0gramista/meme-reader">@pr0gramista</a></v-container>
-    </v-footer>
     </v-content>
   </v-app>
 </template>
 
 <script>
+import Cookies from 'js-cookie'
+
 export default {
   name: 'App',
   data: () => ({
@@ -83,6 +82,14 @@ export default {
     go: function (site) {
       this.$router.push({ 'path': '/' + site })
     }
+  },
+  watch: {
+    darkMode: function (isEnabled, wasEnabled) {
+      Cookies.set('dark', isEnabled, { expires: 2000 })
+    }
+  },
+  created () {
+    this.darkMode = Cookies.get('dark') === 'true'
   }
 }
 </script>
