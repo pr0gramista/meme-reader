@@ -45,6 +45,10 @@
           </router-link>
         </v-flex>
       </v-layout>
+      <div class="memorial">
+        Build to browse community owned images without bloatware, adware and stinky UI.
+        Made by <a href="https://pr0gramista.pl">pr0gramista</a>
+      </div>
     </v-container>
   </div>
 </template>
@@ -58,6 +62,10 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
+}
+
+.memorial {
+  margin: 10px;
 }
 
 .jbzd {
