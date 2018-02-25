@@ -39,7 +39,7 @@ export default {
     }
   },
   computed: {
-    numberOfSlides: function() {
+    numberOfSlides: function () {
       return this.content.images.length
     }
   },
