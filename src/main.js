@@ -6,10 +6,12 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import LoadingErrorView from '@/components/LoadingErrorView.vue'
+import Gallery from '@/components/Gallery.vue'
 import './assets/style.scss'
 
 Vue.use(Vuetify)
 Vue.component('loading-error', LoadingErrorView)
+Vue.component('gallery', Gallery)
 
 Vue.config.productionTip = false
 

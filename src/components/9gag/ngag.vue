@@ -12,6 +12,9 @@
             <source :src="meme.content.url">
           </video>
         </div>
+        <ul v-if="meme.content.contentType == 'GALLERY'" class="gallery">
+          <gallery :content="meme.content" />
+        </ul>
         <div class="meta">
           <a class="comments" :href="meme.url">Comments: {{ meme.commentAmount }}</a>
           <a class="source" :href="meme.url">Source</a>

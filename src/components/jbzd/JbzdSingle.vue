@@ -11,15 +11,7 @@
             <source :src="meme.content.url">
           </video>
           <ul v-if="meme.content.contentType == 'GALLERY'" class="gallery">
-            <button class="btn btn-gallery-nav btn-gallery-nav-left" ng-click="previousSlide(post)">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
-            </button>
-            <button class="btn btn-gallery-nav btn-gallery-nav-right" ng-click="nextSlide(post)">
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </button>
-            <li v-for="url in meme.content.urls" :key="url" :class="meme.currentSlide == $index ? 'active' : ''">
-                <img :src="url">
-            </li>
+            <gallery :content="meme.content" />
           </ul>
         </div>
         <div class="meta">
