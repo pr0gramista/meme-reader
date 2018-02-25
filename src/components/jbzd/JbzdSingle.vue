@@ -60,7 +60,4 @@ export default {
 </script>
 
 <style scoped>
-  .meme {
-    margin: 10px;
-  }
 </style>

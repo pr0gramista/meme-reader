@@ -59,7 +59,7 @@
       <v-toolbar-title><router-link to="/" class="site-name">Meme reader</router-link></v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container fluid>
+      <v-container>
         <router-view></router-view>
       </v-container>
     <v-footer color="indigo darken-2 white--text" height="64">
