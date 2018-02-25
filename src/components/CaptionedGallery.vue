@@ -1,9 +1,13 @@
 <template>
     <div class="gallery">
         <div class="slides">
-            <div v-for="(url, i) in content.urls" :key="url" class="slide" v-bind:class="{ active: i == slide }">
-                <img :src="url" />
+          <div v-for="(image, i) in content.images" :key="image.url" class="slide" v-bind:class="{ active: i == slide }">
+            <div class="captions">
+              <h3>{{ image.title }}</h3>
+              {{ image.caption }}
             </div>
+            <img :src="image.url" />
+          </div>
         </div>
         <v-btn class="gallery-nav"
               absolute
@@ -28,7 +32,7 @@
 
 <script>
 export default {
-  name: 'Gallery',
+  name: 'GalleryCaptioned',
   data () {
     return {
       slide: 0
@@ -36,7 +40,7 @@ export default {
   },
   computed: {
     numberOfSlides: function() {
-      return this.content.urls.length
+      return this.content.images.length
     }
   },
   methods: {
@@ -75,5 +79,9 @@ export default {
 
 .slide.active {
   display: block;
+}
+
+.captions {
+  margin: 8px 0;
 }
 </style>
