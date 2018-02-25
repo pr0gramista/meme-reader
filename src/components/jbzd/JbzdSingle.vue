@@ -28,7 +28,7 @@
         </div>
         <div class="comment-section">
           <div v-for="comment in meme.comments" :key="comment.content" class="comment">
-            <div ng-if="comment.author != null" class="comment-author"><a :href="comment.author.profileUrl">{{ comment.author.name }}</a></div>
+            <div v-if="comment.author != null" class="comment-author"><a :href="comment.author.profileUrl">{{ comment.author.name }}</a></div>
             <div class="comment-content">
                 {{ comment.content }}
             </div>
