@@ -6,7 +6,7 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import LoadingErrorView from '@/components/LoadingErrorView.vue'
-import './assets/style.css'
+import './assets/style.scss'
 
 Vue.use(Vuetify)
 Vue.component('loading-error', LoadingErrorView)
