@@ -9,7 +9,6 @@
               absolute
               fab
               right
-              color="transparent"
               @click="moveRight"
             >
               <v-icon>chevron_right</v-icon>
@@ -18,7 +17,6 @@
               absolute
               fab
               left
-              color="transparent"
               @click="moveLeft"
             >
               <v-icon>chevron_left</v-icon>
@@ -63,6 +61,12 @@ export default {
 .gallery-nav {
   position: absolute;
   top: 100px;
+}
+
+.application .theme--light.btn:not(.btn--icon):not(.btn--flat), .theme--light .btn:not(.btn--icon):not(.btn--flat),
+.application .theme--dark.btn:not(.btn--icon):not(.btn--flat), .theme--dark .btn:not(.btn--icon):not(.btn--flat) {
+  background: rgba(0, 0, 0, 0.25);
+  color: #FFF;
 }
 
 .gallery {
