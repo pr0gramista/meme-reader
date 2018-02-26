@@ -67,25 +67,4 @@ a {
 .memorial {
   margin: 10px;
 }
-
-.jbzd {
-  color: white;
-  background: #252525;
-}
-
-.ngag {
-}
-
-.kwejk {
-  background: #fac701;
-}
-
-.demotywatory {
-  color: white;
-  background: #2d2222;
-}
-
-.mistrzowie {
-
-}
 </style>
