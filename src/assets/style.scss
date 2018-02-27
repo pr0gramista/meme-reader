@@ -1,0 +1,62 @@
+.site {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.meme {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+
+    img {
+        width: 100%;
+    }
+    video {
+        width: 100%;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    h1 {
+        margin-bottom: 4px;
+    }
+
+    .meta {
+        display: flex;
+        flex-direction: row;
+
+        .comments {
+            width: 50%;
+        }
+
+        .source {
+            width: 50%;
+            text-align: right;
+        }
+    }
+
+    .comment-section {
+        margin-top: 12px;
+    }
+
+    .comment {
+        margin: 8px 0;
+
+        .comment-response {
+            margin: 8px 0 8px 12px;
+
+            .response-author {
+                font-weight: bold;
+            }
+        }
+
+        .comment-author {
+            font-weight: bold;
+        }
+    }
+}
