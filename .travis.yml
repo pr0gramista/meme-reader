@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+- node
+- '9'
+install:
+- npm install
+- npm run build
+before_deploy:
+- sudo apt-get -qq update
+- sudo apt-get install -y zip
+- mv dist/static/android-chrome-192x192.png dist/android-chrome-192x192.png
+- mv dist/static/browserconfig.xml dist/browserconfig.xml
+- mv dist/static/favicon-32x32.png dist/favicon-32x32.png
+- mv dist/static/mstile-150x150.png dist/mstile-150x150.png
+- mv dist/static/android-chrome-512x512.png dist/android-chrome-512x512.png
+- mv dist/static/favicon.ico dist/favicon.ico
+- mv dist/static/safari-pinned-tab.svg dist/safari-pinned-tab.svg
+- mv dist/static/apple-touch-icon.png dist/apple-touch-icon.png
+- mv dist/static/favicon-16x16.png dist/favicon-16x16.png
+- mv dist/static/site.webmanifest dist/site.webmanifest
+- git config --local user.name "Bartosz Wiśniewski"
+- git config --local user.email "kontakt@pr0gramista.pl"
+- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+- cd dist
+- zip -r build.zip .
+deploy:
+  provider: releases
+  api_key:
+    secure: pO4KvKqEHcCGIya9ovHzpG/I7+YiTfJrTG/hBV2T0gVdIzv8bnHzlPHo6sXhN3fDq34M83clpcxddXjde1LM7uGeWeUdFr4ZZJ/iTubDwLEryN71TixXfV5clYYcRpWv3I3kQi1y5s+2U+z0hkhq0SsK+/LASJbclDE8bIKQ4xuPX2Z2BOHgKKQGugVhn+zkWo91qLyGNZCAQdAGvovW1lO7rhGlaz6VhltfXDv7LOZw9XElrG9xL7PmIP8kMZq4ZMTzF3R2IZAzmmv/pC+TPlzutwAPif2YuJax+CO5XtkZHEsl9ZzztPcNT3LfPFHqvs6wtmQc6sp9GYtLoNOAKkdfmA90ISZfYCojWlSihfusB1uoBsptp6brPiPMoZdISozW+pLPjsAy78/Fs3V2RjY89rzFwECzvB1Jkfc5WIv+Yg/TVmyPCQwlEr9VTPiW4nhG069v3/x3yWijcy6OOm5qEHxBGOZmZUzbRi0odyHrygrivmT4xa+t0xUUaJq+iE37zawOvG8ii+dYUukVy1wUzawam0jfcaV9ZX81xGIr2HTdC4Am46w8zMC6vcnyvGgJztQSMdI9eV2BQbymbl5Yd+5Mguo21E38kq57tY6lTdcf8ebB3aobpIjWm7rgZSH8NB2bivjnX9kzNHYd/1UcXQvfFZXbJ1hcFFIBSAY=
+  file: dist/build.zip
+  on:
+    repo: pr0gramista/meme-reader
