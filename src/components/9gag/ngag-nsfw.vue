@@ -1,6 +1,6 @@
 <template>
   <div class="site">
-    <h1>9gag</h1>
+    <h1>9gag NSFW</h1>
     <loading-error :error="error" :loading="loading" />
 
     <div v-if="memes" class="memes">
@@ -33,7 +33,7 @@ export default {
   extends: Page,
   data () {
     return {
-      page: '9gag'
+      page: '9gagnsfw'
     }
   }
 }

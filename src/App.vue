@@ -44,6 +44,11 @@
             <v-list-tile-title>9gag</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile @click="go('9gagnsfw')">
+          <v-list-tile-content>
+            <v-list-tile-title>9gag NSFW</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
         <v-list-tile>
           <v-list-tile-content>
               <v-switch
