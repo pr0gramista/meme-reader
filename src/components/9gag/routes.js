@@ -18,7 +18,7 @@ export default [
     component: ngagnsfw
   },
   {
-    path: '/9gagnfw/page/:id',
+    path: '/9gagnsfw/page/:id',
     name: '9gagNSFWPaginator',
     component: ngagnsfw
   }
