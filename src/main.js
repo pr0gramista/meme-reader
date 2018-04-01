@@ -9,6 +9,7 @@ import LoadingErrorView from '@/components/LoadingErrorView.vue'
 import Gallery from '@/components/Gallery.vue'
 import GalleryCaptioned from '@/components/CaptionedGallery.vue'
 import './assets/style.scss'
+import './assets/main.styl'
 
 Vue.use(Vuetify)
 Vue.component('loading-error', LoadingErrorView)
