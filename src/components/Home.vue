@@ -51,6 +51,13 @@
           </v-card>
           </router-link>
         </v-flex>
+        <v-flex sm4 xs6>
+          <router-link to="/anonimowe">
+          <v-card class="ngag">
+            <v-card-text class="px-0">Anonimowe (alpha)</v-card-text>
+          </v-card>
+          </router-link>
+        </v-flex>
       </v-layout>
       <div class="memorial">
         Build to browse community owned images without bloatware, adware and stinky UI.
