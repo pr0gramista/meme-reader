@@ -1,1 +1,1 @@
-export const API = 'http://12345.pl:8080'
+export const API = '//api.12345.pl'
