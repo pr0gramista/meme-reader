@@ -8,7 +8,7 @@
         <a :href="'#' + meme.viewUrl"><h1>{{ meme.title }}</h1></a>
         <div>
           <img v-if="meme.content.contentType == 'IMAGE'" :src="meme.content.url">
-          <video v-if="meme.content.contentType == 'VIDEO'" muted autoplay controls loop>
+          <video v-if="meme.content.contentType == 'VIDEO'" :autoplay="autoplay" muted controls loop>
             <source :src="meme.content.url">
           </video>
         </div>

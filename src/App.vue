@@ -62,6 +62,14 @@
               </v-switch>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+              <v-switch
+                label="Auto play"
+                v-model="autoplay">
+              </v-switch>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark app scroll-off-screen>
@@ -83,7 +91,8 @@ export default {
   name: 'App',
   data: () => ({
     drawer: null,
-    darkMode: false
+    darkMode: false,
+    autoplay: false
   }),
   props: {
     source: String
@@ -96,10 +105,15 @@ export default {
   watch: {
     darkMode: function (isEnabled, wasEnabled) {
       Cookies.set('dark', isEnabled, { expires: 2000 })
+    },
+    autoplay: function (isEnabled, wasEnabled) {
+      this.$root.$emit('autoplayChanged', isEnabled)
+      Cookies.set('autoplay', isEnabled, { expires: 2000 })
     }
   },
   created () {
     this.darkMode = Cookies.get('dark') === 'true'
+    this.autoplay = Cookies.get('autoplay') === 'true'
   }
 }
 </script>

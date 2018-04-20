@@ -20,16 +20,23 @@ export default {
       memes: null,
       error: null,
       nextPage: null,
-      page: this.$route.params.page
+      page: this.$route.params.page,
+      autoplay: false
     }
   },
   created () {
     this.fetchData()
+
+    this.$root.$on('autoplayChanged', this.changeAutoplay)
   },
   watch: {
     '$route': 'fetchData'
   },
   methods: {
+    changeAutoplay (isEnabled) {
+      console.log(isEnabled)
+      this.autoplay = isEnabled
+    },
     fetchData () {
       const id = this.$route.params.id
       let url = API + '/' + this.page
