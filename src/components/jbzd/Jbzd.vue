@@ -7,10 +7,8 @@
       <article class="meme" v-for="meme in memes" :key="meme.url">
         <a :href="'#' + meme.viewUrl"><h1>{{ meme.title }}</h1></a>
         <div>
-          <img v-if="meme.content.contentType == 'IMAGE'" :src="meme.content.url">
-          <video v-if="meme.content.contentType == 'VIDEO'" :autoplay="autoplay" muted controls loop>
-            <source :src="meme.content.url">
-          </video>
+          <img v-if="meme.content.contentType == 'IMAGE'" :src="meme.content.url" />
+          <video-manual v-if="meme.content.contentType == 'VIDEO'" :src="meme.content.url" :autoplay="autoplay" />
         </div>
         <ul v-if="meme.content.contentType == 'GALLERY'" class="gallery">
           <gallery :content="meme.content" />

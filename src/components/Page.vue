@@ -34,7 +34,6 @@ export default {
   },
   methods: {
     changeAutoplay (isEnabled) {
-      console.log(isEnabled)
       this.autoplay = isEnabled
     },
     fetchData () {

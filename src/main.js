@@ -8,6 +8,7 @@ import 'vuetify/dist/vuetify.min.css'
 import LoadingErrorView from '@/components/LoadingErrorView.vue'
 import Gallery from '@/components/Gallery.vue'
 import GalleryCaptioned from '@/components/CaptionedGallery.vue'
+import Video from '@/components/Video.vue'
 import './assets/style.scss'
 import './assets/main.styl'
 
@@ -15,6 +16,7 @@ Vue.use(Vuetify)
 Vue.component('loading-error', LoadingErrorView)
 Vue.component('gallery', Gallery)
 Vue.component('gallery-captioned', GalleryCaptioned)
+Vue.component('video-manual', Video)
 
 Vue.config.productionTip = false
 

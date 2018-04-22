@@ -7,9 +7,7 @@
       <article class="meme" v-for="meme in memes" :key="meme.url">
         <div>
           <img v-if="meme.content.contentType == 'IMAGE' || meme.content.contentType == 'GIF'" :src="meme.content.url">
-          <video v-if="meme.content.contentType == 'VIDEO'" :autoplay="autoplay" muted controls loop>
-            <source :src="meme.content.url">
-          </video>
+          <video-manual v-if="meme.content.contentType == 'VIDEO'" :src="meme.content.url" :autoplay="autoplay" />
         </div>
         <ul v-if="meme.content.contentType == 'GALLERY'" class="gallery">
           <gallery :content="meme.content" />
