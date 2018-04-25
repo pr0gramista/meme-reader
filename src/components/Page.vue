@@ -11,6 +11,7 @@
 <script>
 import axios from 'axios'
 import { API } from '@/config.js'
+import Cookies from 'js-cookie'
 
 export default {
   name: 'Page',
@@ -26,6 +27,7 @@ export default {
   },
   created () {
     this.fetchData()
+    this.autoplay = Cookies.get('autoplay') === 'true'
 
     this.$root.$on('autoplayChanged', this.changeAutoplay)
   },
