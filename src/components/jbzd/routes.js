@@ -1,4 +1,5 @@
 import Jbzd from './Jbzd.vue'
+import ISJbzd from './ISJbzd.vue'
 import JbzdSingle from './JbzdSingle.vue'
 
 export default [
@@ -6,6 +7,11 @@ export default [
     path: '/jbzd',
     name: 'Jbzd',
     component: Jbzd
+  },
+  {
+    path: '/jbzd/scrolling',
+    name: 'JbzdScrolling',
+    component: ISJbzd
   },
   {
     path: '/jbzd/page/:id',

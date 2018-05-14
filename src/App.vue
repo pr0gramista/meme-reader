@@ -70,6 +70,14 @@
               </v-switch>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+              <v-switch
+                label="Infinite scrolling"
+                v-model="infiniteScrolling">
+              </v-switch>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark app scroll-off-screen>
@@ -92,14 +100,19 @@ export default {
   data: () => ({
     drawer: null,
     darkMode: false,
-    autoplay: false
+    autoplay: false,
+    infiniteScrolling: false
   }),
   props: {
     source: String
   },
   methods: {
     go: function (site) {
-      this.$router.push({ 'path': '/' + site })
+      if (this.infiniteScrolling) {
+        this.$router.push({ 'path': '/' + site + '/scrolling' })
+      } else {
+        this.$router.push({ 'path': '/' + site })
+      }
     }
   },
   watch: {
@@ -109,11 +122,16 @@ export default {
     autoplay: function (isEnabled, wasEnabled) {
       this.$root.$emit('autoplayChanged', isEnabled)
       Cookies.set('autoplay', isEnabled, { expires: 2000 })
+    },
+    infiniteScrolling: function(isEnabled, wasEnabled) {
+      this.$root.$emit('infiniteScrollingChanged', isEnabled)
+      Cookies.set('infiniteScrolling', isEnabled, { expires: 2000 })
     }
   },
   created () {
     this.darkMode = Cookies.get('dark') === 'true'
     this.autoplay = Cookies.get('autoplay') === 'true'
+    this.infiniteScrolling = Cookies.get('infiniteScrolling') === 'true'
   }
 }
 </script>
