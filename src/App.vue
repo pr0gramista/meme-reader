@@ -123,7 +123,7 @@ export default {
       this.$root.$emit('autoplayChanged', isEnabled)
       Cookies.set('autoplay', isEnabled, { expires: 2000 })
     },
-    infiniteScrolling: function(isEnabled, wasEnabled) {
+    infiniteScrolling: function (isEnabled, wasEnabled) {
       this.$root.$emit('infiniteScrollingChanged', isEnabled)
       Cookies.set('infiniteScrolling', isEnabled, { expires: 2000 })
     }
