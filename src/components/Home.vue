@@ -54,7 +54,7 @@
         <v-flex sm4 xs6>
           <router-link to="/anonimowe">
           <v-card class="ngag">
-            <v-card-text class="px-0">Anonimowe (alpha)</v-card-text>
+            <v-card-text class="px-0">Anonimowe</v-card-text>
           </v-card>
           </router-link>
         </v-flex>
