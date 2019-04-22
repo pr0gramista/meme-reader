@@ -7,7 +7,7 @@
       <article class="meme" v-for="meme in memes" :key="meme.url">
         <a :href="meme.url"><h1>{{ meme.title }}</h1></a>
         <div>
-          <img v-if="meme.content.contentType == 'IMAGE' || meme.content.contentType == 'GIF'" :src="meme.content.url">
+          <video-manual v-if="meme.content.contentType == 'VIDEO'" :src="meme.content.url" :autoplay="autoplay" />
         </div>
       </article>
     </div>
