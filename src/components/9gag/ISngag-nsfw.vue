@@ -14,7 +14,7 @@
           <gallery :content="meme.content" />
         </ul>
         <div class="meta">
-          <a class="comments" :href="meme.url">Comments: {{ meme.commentAmount }}</a>
+          <a class="comments" :href="meme.url">Comments: {{ meme.commentCount }}</a>
           <a class="source" :href="meme.url">Source</a>
         </div>
       </article>
