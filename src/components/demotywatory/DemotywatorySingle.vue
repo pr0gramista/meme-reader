@@ -18,7 +18,7 @@
           </ul>
         </div>
         <div class="meta">
-          <a class="comments" href="#">Komentarzy: {{ meme.commentAmount }}</a>
+          <a class="comments" href="#">Komentarzy: {{ meme.commentCount }}</a>
           <a class="source" :href="meme.url">Źródło</a>
         </div>
         <div class="comment-section">

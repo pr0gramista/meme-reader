@@ -8,10 +8,12 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "test": "exit 0"
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "camelcase-keys": "^5.2.0",
     "js-cookie": "^2.2.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.1",

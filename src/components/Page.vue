@@ -12,6 +12,7 @@
 import axios from 'axios'
 import { API } from '@/config.js'
 import Cookies from 'js-cookie'
+import camelCase from 'camelcase-keys'
 
 export default {
   name: 'Page',
@@ -54,9 +55,11 @@ export default {
       })
 
       axios.get(url)
-        .then((response) => {
+        .then((r) => {
+          const response = camelCase(r, { deep: true })
           this.memes = response.data.memes
-          this.nextPage = response.data.nextPage
+          console.log(response)
+          this.nextPage = response.data.nextPageUrl
           this.loading = false
         })
         .catch((error) => {

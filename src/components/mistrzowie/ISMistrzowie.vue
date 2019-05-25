@@ -11,7 +11,7 @@
           <video-manual v-if="meme.content.contentType == 'VIDEO'" :src="meme.content.url" :autoplay="autoplay" />
         </div>
         <div class="meta">
-          <a class="comments" :href="meme.url">Komentarzy: {{ meme.commentAmount }}</a>
+          <a class="comments" :href="meme.url">Komentarzy: {{ meme.commentCount }}</a>
           <a class="source" :href="meme.url">Źródło</a>
         </div>
       </article>
