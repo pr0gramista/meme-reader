@@ -1,6 +1,6 @@
 import Jbzd from './Jbzd.vue'
 import ISJbzd from './ISJbzd.vue'
-import JbzdSingle from './JbzdSingle.vue'
+// import JbzdSingle from './JbzdSingle.vue'
 
 export default [
   {
@@ -17,10 +17,11 @@ export default [
     path: '/jbzd/page/:id',
     name: 'JbzdPaginator',
     component: Jbzd
-  },
-  {
-    path: '/jbzd/:id',
-    name: 'JbzdSingle',
-    component: JbzdSingle
   }
+  // Disabled until endpoint will be working again
+  // {
+  //   path: '/jbzd/:id',
+  //   name: 'JbzdSingle',
+  //   component: JbzdSingle
+  // }
 ]

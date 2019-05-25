@@ -1,6 +1,6 @@
 import Demotywatory from './Demotywatory.vue'
 import ISDemotywatory from './ISDemotywatory.vue'
-import DemotywatorySingle from './DemotywatorySingle.vue'
+// import DemotywatorySingle from './DemotywatorySingle.vue'
 
 export default [
   {
@@ -17,10 +17,11 @@ export default [
     path: '/demotywatory/page/:id',
     name: 'DemotywatoryPaginator',
     component: Demotywatory
-  },
-  {
-    path: '/demotywatory/:id',
-    name: 'DemotywatorySingle',
-    component: DemotywatorySingle
   }
+  // Disabled until endpoint will be working again
+  // {
+  //   path: '/demotywatory/:id',
+  //   name: 'DemotywatorySingle',
+  //   component: DemotywatorySingle
+  // }
 ]

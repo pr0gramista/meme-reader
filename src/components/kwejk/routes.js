@@ -1,6 +1,6 @@
 import Kwejk from './Kwejk.vue'
 import ISKwejk from './ISKwejk.vue'
-import KwejkSingle from './KwejkSingle.vue'
+// import KwejkSingle from './KwejkSingle.vue'
 
 export default [
   {
@@ -17,10 +17,11 @@ export default [
     path: '/kwejk/page/:id',
     name: 'KwejkPaginator',
     component: Kwejk
-  },
-  {
-    path: '/kwejk/:id',
-    name: 'KwejkSingle',
-    component: KwejkSingle
   }
+  // Disabled until endpoint will be working again
+  // {
+  //   path: '/kwejk/:id',
+  //   name: 'KwejkSingle',
+  //   component: KwejkSingle
+  // }
 ]

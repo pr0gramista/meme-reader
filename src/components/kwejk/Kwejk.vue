@@ -5,7 +5,7 @@
 
     <div v-if="memes" class="memes">
       <article class="meme" v-for="meme in memes" :key="meme.url">
-        <a :href="'#' + meme.viewUrl"><h1>{{ meme.title }}</h1></a>
+        <a :href="meme.url"><h1>{{ meme.title }}</h1></a>
         <div>
           <img v-if="meme.content.contentType == 'IMAGE' || meme.content.contentType == 'GIF'" :src="meme.content.url">
           <video-manual v-if="meme.content.contentType == 'VIDEO'" :src="meme.content.url" :autoplay="autoplay" />
@@ -14,7 +14,7 @@
           <gallery :content="meme.content" />
         </ul>
         <div class="meta">
-          <a class="comments" :href="'#' + meme.viewUrl">Komentarzy: {{ meme.commentAmount }}</a>
+          <a class="comments" :href="meme.url">Komentarzy: {{ meme.commentAmount }}</a>
           <a class="source" :href="meme.url">Źródło</a>
         </div>
       </article>
