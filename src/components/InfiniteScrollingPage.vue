@@ -12,6 +12,7 @@
 import axios from 'axios'
 import { API } from '@/config.js'
 import Cookies from 'js-cookie'
+import camelCase from 'camelcase-keys'
 
 const LOAD_WITHIN = 1200
 
@@ -59,9 +60,10 @@ export default {
       const url = API + '/' + this.page
 
       axios.get(url)
-        .then((response) => {
+        .then((r) => {
+          const response = camelCase(r, { deep: true })
           this.memes = response.data.memes
-          this.nextPage = response.data.nextPage
+          this.nextPage = response.data.nextPageUrl
           this.loading = false
         })
         .catch((error) => {
@@ -79,9 +81,10 @@ export default {
       this.error = null
 
       axios.get(API + this.nextPage)
-        .then((response) => {
+        .then((r) => {
+          const response = camelCase(r, { deep: true })
           this.memes = this.memes.concat(response.data.memes)
-          this.nextPage = response.data.nextPage
+          this.nextPage = response.data.nextPageUrl
           this.loading = false
         })
         .catch((error) => {
