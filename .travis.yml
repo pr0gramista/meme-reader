@@ -1,7 +1,4 @@
 language: node_js
-node_js:
-- node
-- '9'
 install:
 - npm install
 - npm run build
@@ -27,7 +24,8 @@ deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: pO4KvKqEHcCGIya9ovHzpG/I7+YiTfJrTG/hBV2T0gVdIzv8bnHzlPHo6sXhN3fDq34M83clpcxddXjde1LM7uGeWeUdFr4ZZJ/iTubDwLEryN71TixXfV5clYYcRpWv3I3kQi1y5s+2U+z0hkhq0SsK+/LASJbclDE8bIKQ4xuPX2Z2BOHgKKQGugVhn+zkWo91qLyGNZCAQdAGvovW1lO7rhGlaz6VhltfXDv7LOZw9XElrG9xL7PmIP8kMZq4ZMTzF3R2IZAzmmv/pC+TPlzutwAPif2YuJax+CO5XtkZHEsl9ZzztPcNT3LfPFHqvs6wtmQc6sp9GYtLoNOAKkdfmA90ISZfYCojWlSihfusB1uoBsptp6brPiPMoZdISozW+pLPjsAy78/Fs3V2RjY89rzFwECzvB1Jkfc5WIv+Yg/TVmyPCQwlEr9VTPiW4nhG069v3/x3yWijcy6OOm5qEHxBGOZmZUzbRi0odyHrygrivmT4xa+t0xUUaJq+iE37zawOvG8ii+dYUukVy1wUzawam0jfcaV9ZX81xGIr2HTdC4Am46w8zMC6vcnyvGgJztQSMdI9eV2BQbymbl5Yd+5Mguo21E38kq57tY6lTdcf8ebB3aobpIjWm7rgZSH8NB2bivjnX9kzNHYd/1UcXQvfFZXbJ1hcFFIBSAY=
+    secure: Kg5KyT2IxA0M+ez1e05U5ujhIVNWMfS++bMNAQwU9DjIaEuAmKzCuA6TnA4nt9TGnUjwRlbEnA3y7LOEP7dbckuFRHF/89VhoATurfFuId7vv6FtBN/rpNnj3E7QkVTWSTiWylWiEJ7lDop4XnW7TTwitMVCRCYRYO5uTYYTFODUd3i2L6JuEhJdiJWJKRIY1cbD5ikw8liDUuDbnSyGhVDDX051sr0/dKfV6UepHr5cCIs6AwvLKSjPa8WOgLewixAJCYcL2+w7gqXPlhjwRefwsSV4XlOuSWTxFUXl79jHumPMq6p6SbgV0B+3eXihN9pOPzQj/iQI+qI6T+0flmdaiaDYx9xE/vKDzHBfVQNdeGlat333lvXQSUVV5nJuZrLh4Y/DBG0twp5mmBaMjwaT6w+N34RabkzrlkomOuVNB+ss1vn2Jr0WxbLjp00Rob4RqeLFkvQVoUT0FEIMSoYOiE32vYSDol/adT+Uw/fW5DZZYqV9GtPDWGYze7aCddmda8x78r8TKyOuMjpvXYPxupbfnBzJUS0DpToiiddVJsOl1Jr/P2CJkCxB2pOg4+UV4l+Azt133M/Z2tPajb5si2ZHZ5H9uDkbw+RipFY+qBN2r5vWR8srQa2vba4ZL9ax4uJGt5SU9W9A2AciwmG06OGJIuEZLQIJEmIK2j8=
   file: build.zip
   on:
     repo: pr0gramista/meme-reader
+    tags: true
