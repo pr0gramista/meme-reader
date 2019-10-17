@@ -34,11 +34,6 @@
             <v-list-tile-title>Mistrzowie</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="go('thecodinglove')">
-          <v-list-tile-content>
-            <v-list-tile-title>The Coding Love</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
         <v-list-tile @click="go('9gag')">
           <v-list-tile-content>
             <v-list-tile-title>9gag</v-list-tile-title>

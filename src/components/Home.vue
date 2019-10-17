@@ -31,13 +31,6 @@
           </router-link>
         </v-flex>
         <v-flex sm4 xs6>
-          <router-link to="/thecodinglove">
-          <v-card class="thecodinglove">
-            <v-card-text class="px-0">The Coding Love</v-card-text>
-          </v-card>
-          </router-link>
-        </v-flex>
-        <v-flex sm4 xs6>
           <router-link to="/9gag">
           <v-card class="ngag">
             <v-card-text class="px-0">9gag</v-card-text>

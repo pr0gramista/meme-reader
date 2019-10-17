@@ -6,7 +6,6 @@ import kwejkRoutes from '@/components/kwejk/routes.js'
 import ninegagRoutes from '@/components/9gag/routes.js'
 import demotywatoryRoutes from '@/components/demotywatory/routes.js'
 import mistrzowieRoutes from '@/components/mistrzowie/routes.js'
-import theCodingLoveRoutes from '@/components/thecodinglove/routes.js'
 import anonimoweRoutes from '@/components/anonimowe/routes.js'
 
 Vue.use(Router)
@@ -23,6 +22,5 @@ export default new Router({
     .concat(ninegagRoutes)
     .concat(demotywatoryRoutes)
     .concat(mistrzowieRoutes)
-    .concat(theCodingLoveRoutes)
     .concat(anonimoweRoutes)
 })
