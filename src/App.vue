@@ -1,10 +1,6 @@
 <template>
   <v-app id="app" :dark="darkMode">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      hide-overlay
-    >
+    <v-navigation-drawer v-model="drawer" app hide-overlay>
       <v-list>
         <v-list-tile @click="go('')">
           <v-list-tile-action>
@@ -14,14 +10,14 @@
             <v-list-tile-title>Home</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="go('kwejk')">
-          <v-list-tile-content>
-            <v-list-tile-title>Kwejk</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
         <v-list-tile @click="go('jbzd')">
           <v-list-tile-content>
             <v-list-tile-title>Jbzd</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="go('kwejk')">
+          <v-list-tile-content>
+            <v-list-tile-title>Kwejk</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile @click="go('demotywatory')">
@@ -51,33 +47,29 @@
         </v-list-tile>
         <v-list-tile>
           <v-list-tile-content>
-              <v-switch
-                label="Dark mode"
-                v-model="darkMode">
-              </v-switch>
+            <v-switch label="Dark mode" v-model="darkMode"> </v-switch>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile>
           <v-list-tile-content>
-              <v-switch
-                label="Auto play"
-                v-model="autoplay">
-              </v-switch>
+            <v-switch label="Auto play" v-model="autoplay"> </v-switch>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile>
           <v-list-tile-content>
-              <v-switch
-                label="Infinite scrolling"
-                v-model="infiniteScrolling">
-              </v-switch>
+            <v-switch label="Infinite scrolling" v-model="infiniteScrolling">
+            </v-switch>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark app scroll-off-screen>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title><router-link to="/" class="site-name">Meme reader</router-link></v-toolbar-title>
+      <v-toolbar-title
+        ><router-link to="/" class="site-name"
+          >Meme reader</router-link
+        ></v-toolbar-title
+      >
     </v-toolbar>
     <v-content>
       <v-container>
@@ -88,10 +80,10 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 
 export default {
-  name: 'App',
+  name: "App",
   data: () => ({
     drawer: null,
     darkMode: false,
@@ -102,33 +94,33 @@ export default {
     source: String
   },
   methods: {
-    go: function (site) {
+    go: function(site) {
       if (this.infiniteScrolling) {
-        this.$router.push({ 'path': '/' + site + '/scrolling' })
+        this.$router.push({ path: "/" + site + "/scrolling" });
       } else {
-        this.$router.push({ 'path': '/' + site })
+        this.$router.push({ path: "/" + site });
       }
     }
   },
   watch: {
-    darkMode: function (isEnabled, wasEnabled) {
-      Cookies.set('dark', isEnabled, { expires: 2000 })
+    darkMode: function(isEnabled, wasEnabled) {
+      Cookies.set("dark", isEnabled, { expires: 2000 });
     },
-    autoplay: function (isEnabled, wasEnabled) {
-      this.$root.$emit('autoplayChanged', isEnabled)
-      Cookies.set('autoplay', isEnabled, { expires: 2000 })
+    autoplay: function(isEnabled, wasEnabled) {
+      this.$root.$emit("autoplayChanged", isEnabled);
+      Cookies.set("autoplay", isEnabled, { expires: 2000 });
     },
-    infiniteScrolling: function (isEnabled, wasEnabled) {
-      this.$root.$emit('infiniteScrollingChanged', isEnabled)
-      Cookies.set('infiniteScrolling', isEnabled, { expires: 2000 })
+    infiniteScrolling: function(isEnabled, wasEnabled) {
+      this.$root.$emit("infiniteScrollingChanged", isEnabled);
+      Cookies.set("infiniteScrolling", isEnabled, { expires: 2000 });
     }
   },
-  created () {
-    this.darkMode = Cookies.get('dark') === 'true'
-    this.autoplay = Cookies.get('autoplay') === 'true'
-    this.infiniteScrolling = Cookies.get('infiniteScrolling') === 'true'
+  created() {
+    this.darkMode = Cookies.get("dark") === "true";
+    this.autoplay = Cookies.get("autoplay") === "true";
+    this.infiniteScrolling = Cookies.get("infiniteScrolling") === "true";
   }
-}
+};
 </script>
 
 <style scoped>
