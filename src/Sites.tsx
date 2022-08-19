@@ -7,16 +7,28 @@ import {
   Smiley,
 } from "phosphor-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface SiteLinkProps {
   icon: React.ReactNode;
   color: string;
   label: string;
+  path: string;
 }
 
-function SiteLink({ icon, color, label }: SiteLinkProps) {
+interface SiteLink {
+  icon: React.ReactNode;
+  color: string;
+  label: string;
+  path: string;
+}
+
+function SiteLink({ icon, color, label, path }: SiteLinkProps) {
+  const navigate = useNavigate();
+
   return (
     <UnstyledButton
+      onClick={() => navigate(path)}
       sx={(theme) => ({
         display: "block",
         width: "100%",
@@ -44,15 +56,50 @@ function SiteLink({ icon, color, label }: SiteLinkProps) {
   );
 }
 
-const data = [
-  { icon: <Smiley size={16} />, color: "red", label: "Jbzd" },
-  { icon: <Smiley size={16} />, color: "yellow", label: "Kwejk" },
-  { icon: <MaskSad size={16} />, color: "dark", label: "Demotywatory" },
-  { icon: <CrownSimple size={16} />, color: "white", label: "Mistrzowie" },
-  { icon: <NumberNine size={16} />, color: "blue", label: "9gag" },
-  { icon: <NumberNine size={16} />, color: "red", label: "9gag NSFW" },
-  { icon: <Article size={16} />, color: "grape", label: "Anonimowe" },
-  { icon: <Smiley size={16} />, color: "yellow", label: "iFunny" },
+const data: SiteLink[] = [
+  { icon: <Smiley size={16} />, color: "red", label: "Jbzd", path: "/jbzd" },
+  {
+    icon: <Smiley size={16} />,
+    color: "yellow",
+    label: "Kwejk",
+    path: "/kwejk",
+  },
+  {
+    icon: <MaskSad size={16} />,
+    color: "dark",
+    label: "Demotywatory",
+    path: "/demotywatory",
+  },
+  {
+    icon: <CrownSimple size={16} />,
+    color: "white",
+    label: "Mistrzowie",
+    path: "/mistrzowie",
+  },
+  {
+    icon: <NumberNine size={16} />,
+    color: "blue",
+    label: "9gag",
+    path: "/9gag",
+  },
+  {
+    icon: <NumberNine size={16} />,
+    color: "red",
+    label: "9gag NSFW",
+    path: "/9gagnsfw",
+  },
+  {
+    icon: <Article size={16} />,
+    color: "grape",
+    label: "Anonimowe",
+    path: "/anonimowe",
+  },
+  {
+    icon: <Smiley size={16} />,
+    color: "yellow",
+    label: "iFunny",
+    path: "/ifunnyco",
+  },
 ];
 
 export interface SitesProps {}

@@ -17,6 +17,8 @@ import {
 } from "@mantine/core";
 import { MoonStars, SunDim } from "phosphor-react";
 import Sites from "./Sites";
+import { Route, Routes } from "react-router-dom";
+import Site from "./Site";
 
 function App() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -99,7 +101,41 @@ function App() {
         },
       })}
     >
-      {/* Your application here */}
+      Halo
+      <Routes>
+        <Route path="/kwejk">
+          <Route path="" element={<Site slug="kwejk" />} />
+          <Route path="page/:page" element={<Site slug="kwejk" />} />
+        </Route>
+        <Route path="/jbzd">
+          <Route path="" element={<Site slug="jbzd" />} />
+          <Route path="page/:page" element={<Site slug="jbzd" />} />
+        </Route>
+        <Route path="/demotywatory">
+          <Route path="" element={<Site slug="demotywatory" />} />
+          <Route path="page/:page" element={<Site slug="demotywatory" />} />
+        </Route>
+        <Route path="/mistrzowie">
+          <Route path="" element={<Site slug="mistrzowie" />} />
+          <Route path="page/:page" element={<Site slug="mistrzowie" />} />
+        </Route>
+        <Route path="/anonimowe">
+          <Route path="" element={<Site slug="anonimowe" />} />
+          <Route path="page/:page" element={<Site slug="anonimowe" />} />
+        </Route>
+        <Route path="/ifunnyco">
+          <Route path="" element={<Site slug="ifunnyco" />} />
+          <Route path="page/:page" element={<Site slug="ifunnyco" />} />
+        </Route>
+        <Route path="/9gag">
+          <Route path="" element={<Site slug="9gag" />} />
+          <Route path="page/:page" element={<Site slug="9gag" />} />
+        </Route>
+        <Route path="/9gagnsfw">
+          <Route path="" element={<Site slug="9gagnsfw" />} />
+          <Route path="page/:page" element={<Site slug="9gagnsfw" />} />
+        </Route>
+      </Routes>
     </AppShell>
   );
 }
