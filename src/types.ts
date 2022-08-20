@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 const AuthorZod = z.object({
   name: z.string(),
@@ -11,26 +11,26 @@ const TagZod = z.object({
 });
 
 const ImageContentZod = z.object({
-  contentType: z.literal("IMAGE"),
+  contentType: z.literal('IMAGE'),
   url: z.string(),
 });
 
 const VideoContentZod = z.object({
-  contentType: z.literal("VIDEO"),
+  contentType: z.literal('VIDEO'),
   url: z.string(),
 });
 
 const GalleryContentZod = z.object({
-  contentType: z.literal("GALLERY"),
+  contentType: z.literal('GALLERY'),
   urls: z.array(z.string()),
 });
 
 const TextContentZod = z.object({
-  contentType: z.literal("TEXT"),
+  contentType: z.literal('TEXT'),
   text: z.string(),
 });
 
-const ContentZod = z.discriminatedUnion("contentType", [
+const ContentZod = z.discriminatedUnion('contentType', [
   ImageContentZod,
   VideoContentZod,
   GalleryContentZod,

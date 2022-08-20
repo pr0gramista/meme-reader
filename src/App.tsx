@@ -1,12 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { useState } from 'react';
 import {
   ActionIcon,
   AppShell,
   Burger,
   Group,
   Header,
-  MantineProvider,
   MediaQuery,
   Navbar,
   Stack,
@@ -14,11 +12,11 @@ import {
   Text,
   useMantineColorScheme,
   useMantineTheme,
-} from "@mantine/core";
-import { MoonStars, SunDim } from "phosphor-react";
-import Sites from "./Sites";
-import { Route, Routes } from "react-router-dom";
-import Site from "./Site";
+} from '@mantine/core';
+import { MoonStars, SunDim } from 'phosphor-react';
+import Sites from './Sites';
+import { Route, Routes } from 'react-router-dom';
+import Site from './Site';
 
 function App() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -33,9 +31,9 @@ function App() {
       header={
         <Header height={70} p="md">
           <div
-            style={{ display: "flex", alignItems: "center", height: "100%" }}
+            style={{ display: 'flex', alignItems: 'center', height: '100%' }}
           >
-            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+            <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
               <Burger
                 opened={opened}
                 onClick={() => setOpened((o) => !o)}
@@ -75,7 +73,7 @@ function App() {
                   onClick={() => toggleColorScheme()}
                   size={30}
                 >
-                  {colorScheme === "dark" ? (
+                  {colorScheme === 'dark' ? (
                     <SunDim size={16} />
                   ) : (
                     <MoonStars size={16} />
@@ -83,7 +81,7 @@ function App() {
                 </ActionIcon>
               </Group>
               <div>
-                Made with ♥️ by{" "}
+                Made with ♥️ by{' '}
                 <a href="https://github.com/pr0gramista/meme-reader">
                   pr0gramista
                 </a>
@@ -95,7 +93,7 @@ function App() {
       styles={(theme) => ({
         main: {
           backgroundColor:
-            theme.colorScheme === "dark"
+            theme.colorScheme === 'dark'
               ? theme.colors.dark[8]
               : theme.colors.gray[0],
         },

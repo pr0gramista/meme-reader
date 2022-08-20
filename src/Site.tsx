@@ -1,18 +1,17 @@
-import { Carousel } from "@mantine/carousel";
-import { Box, Group, LoadingOverlay, Title, Image } from "@mantine/core";
-import React, { useCallback, useEffect, useState } from "react";
-import MemeCard from "./MemeCard";
-import { Meme, Page, PageZod } from "./types";
+import { Box, LoadingOverlay } from '@mantine/core';
+import { useCallback, useEffect, useState } from 'react';
+import MemeCard from './MemeCard';
+import { Meme, Page, PageZod } from './types';
 
 export type SiteSlug =
-  | "kwejk"
-  | "jbzd"
-  | "9gag"
-  | "9gagnsfw"
-  | "ifunnyco"
-  | "mistrzowie"
-  | "demotywatory"
-  | "anonimowe";
+  | 'kwejk'
+  | 'jbzd'
+  | '9gag'
+  | '9gagnsfw'
+  | 'ifunnyco'
+  | 'mistrzowie'
+  | 'demotywatory'
+  | 'anonimowe';
 
 export interface SiteProps {
   slug: SiteSlug;
@@ -56,8 +55,8 @@ const Site = ({ slug, page }: SiteProps) => {
   }, []);
 
   return (
-    <Box sx={{ minHeight: "100vh", position: "relative" }}>
-      <Box sx={{ maxWidth: 500, margin: "auto" }}>
+    <Box sx={{ minHeight: '100vh', position: 'relative' }}>
+      <Box sx={{ maxWidth: 500, margin: 'auto' }}>
         {data?.memes.map(mapMemes)}
       </Box>
       <LoadingOverlay transitionDuration={500} visible={data == null} />
