@@ -27,7 +27,7 @@ function App() {
 
   return (
     <AppShell
-      padding="md"
+      padding="xs"
       navbarOffsetBreakpoint="md"
       asideOffsetBreakpoint="md"
       header={
@@ -50,7 +50,7 @@ function App() {
       }
       navbar={
         <Navbar
-          width={{ base: 300 }}
+          width={{ sm: 200, lg: 300 }}
           p="xs"
           hiddenBreakpoint="sm"
           hidden={!opened}
@@ -101,7 +101,6 @@ function App() {
         },
       })}
     >
-      Halo
       <Routes>
         <Route path="/kwejk">
           <Route path="" element={<Site slug="kwejk" />} />

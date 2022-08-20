@@ -1,4 +1,8 @@
-import React from "react";
+import { Carousel } from "@mantine/carousel";
+import { Box, Group, LoadingOverlay, Title, Image } from "@mantine/core";
+import React, { useCallback, useEffect, useState } from "react";
+import MemeCard from "./MemeCard";
+import { Meme, Page, PageZod } from "./types";
 
 export type SiteSlug =
   | "kwejk"
@@ -15,8 +19,50 @@ export interface SiteProps {
   page?: string;
 }
 
-const Site = ({ slug }: SiteProps) => {
-  return <div>Site {slug}</div>;
+const Site = ({ slug, page }: SiteProps) => {
+  const [data, setData] = useState<Page>();
+
+  useEffect(() => {
+    setData(undefined);
+
+    let url = `https://api.12345.pl/${slug}`;
+    if (page != null) {
+      url += `/page/${page}`;
+    }
+
+    let cancelled = false;
+
+    fetch(url)
+      .then((r) => r.json())
+      .then((json) => {
+        if (cancelled) return;
+
+        const result = PageZod.safeParse(json);
+
+        if (result.success) {
+          setData(result.data);
+        } else {
+          console.error(result.error);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, page]);
+
+  const mapMemes = useCallback((meme: Meme) => {
+    return <MemeCard key={meme.url} meme={meme} />;
+  }, []);
+
+  return (
+    <Box sx={{ minHeight: "100vh", position: "relative" }}>
+      <Box sx={{ maxWidth: 500, margin: "auto" }}>
+        {data?.memes.map(mapMemes)}
+      </Box>
+      <LoadingOverlay transitionDuration={500} visible={data == null} />
+    </Box>
+  );
 };
 
 export default Site;

@@ -72,7 +72,7 @@ const data: SiteLink[] = [
   },
   {
     icon: <CrownSimple size={16} />,
-    color: "white",
+    color: "gray",
     label: "Mistrzowie",
     path: "/mistrzowie",
   },
