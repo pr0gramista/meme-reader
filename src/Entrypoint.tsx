@@ -19,7 +19,23 @@ export const Entrypoint = () => {
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
-        theme={{ colorScheme }}
+        theme={{
+          colorScheme,
+          colors: {
+            dark: [
+              '#ffffff',
+              '#C1C2C5',
+              '#909296',
+              '#5C5F66',
+              '#373A40',
+              '#2C2E33',
+              '#25262B',
+              '#1A1B1E',
+              '#141517',
+              '#080810',
+            ],
+          },
+        }}
       >
         <App />
       </MantineProvider>

@@ -14,6 +14,7 @@ interface SiteLinkProps {
   color: string;
   label: string;
   path: string;
+  onNavigate?: () => void;
 }
 
 interface SiteLink {
@@ -23,12 +24,15 @@ interface SiteLink {
   path: string;
 }
 
-function SiteLink({ icon, color, label, path }: SiteLinkProps) {
+function SiteLink({ icon, color, label, path, onNavigate }: SiteLinkProps) {
   const navigate = useNavigate();
 
   return (
     <UnstyledButton
-      onClick={() => navigate(path)}
+      onClick={() => {
+        if (onNavigate) onNavigate();
+        navigate(path);
+      }}
       sx={(theme) => ({
         display: 'block',
         width: '100%',
@@ -102,8 +106,14 @@ const data: SiteLink[] = [
   },
 ];
 
-const Sites = () => {
-  const links = data.map((link) => <SiteLink {...link} key={link.label} />);
+interface SitesProps {
+  onNavigate: () => void;
+}
+
+const Sites = ({ onNavigate }: SitesProps) => {
+  const links = data.map((link) => (
+    <SiteLink {...link} key={link.label} onNavigate={onNavigate} />
+  ));
   return <div>{links}</div>;
 };
 

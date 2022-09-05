@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   ActionIcon,
   AppShell,
+  Box,
   Burger,
   Group,
   Header,
@@ -17,11 +18,20 @@ import { MoonStars, SunDim } from 'phosphor-react';
 import Sites from './Sites';
 import { Route, Routes } from 'react-router-dom';
 import Site from './Site';
+import { useBearStore } from './store';
 
 function App() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [opened, setOpened] = useState(false);
   const theme = useMantineTheme();
+
+  const onNavigate = useCallback(() => {
+    if (opened) {
+      setOpened(false);
+    }
+  }, [opened, setOpened]);
+
+  const store = useBearStore();
 
   return (
     <AppShell
@@ -54,17 +64,25 @@ function App() {
           hidden={!opened}
         >
           <Navbar.Section grow mt="md">
-            <Sites />
+            <Sites onNavigate={onNavigate} />
           </Navbar.Section>
           <Navbar.Section>
             <Stack>
               <Group position="apart">
                 Infinite scroll
-                <Switch />
+                <Switch
+                  checked={store.infiniteScroll}
+                  onChange={(e) =>
+                    store.setInfiniteScroll(e.currentTarget.checked)
+                  }
+                />
               </Group>
               <Group position="apart">
                 Autoplay
-                <Switch />
+                <Switch
+                  checked={store.autoplay}
+                  onChange={(e) => store.setAutoplay(e.currentTarget.checked)}
+                />
               </Group>
               <Group position="apart">
                 Theme
@@ -82,9 +100,13 @@ function App() {
               </Group>
               <div>
                 Made with ♥️ by{' '}
-                <a href="https://github.com/pr0gramista/meme-reader">
+                <Box
+                  component="a"
+                  sx={{ color: 'inherit ' }}
+                  href="https://github.com/pr0gramista/meme-reader"
+                >
                   pr0gramista
-                </a>
+                </Box>
               </div>
             </Stack>
           </Navbar.Section>
