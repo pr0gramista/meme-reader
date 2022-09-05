@@ -1,5 +1,6 @@
 import { Carousel } from '@mantine/carousel';
 import { Box, Title, Group, Image } from '@mantine/core';
+import { useBearStore } from './store';
 import { Meme } from './types';
 
 export interface MemeCardProps {
@@ -7,6 +8,8 @@ export interface MemeCardProps {
 }
 
 const MemeCard = ({ meme }: MemeCardProps) => {
+  const autoplay = useBearStore().autoplay;
+
   return (
     <Box sx={{ marginBottom: 12 }}>
       {meme.title && (
@@ -33,7 +36,7 @@ const MemeCard = ({ meme }: MemeCardProps) => {
             src={meme.content.url}
             muted
             loop
-            autoPlay
+            autoPlay={autoplay}
             playsInline
             controls
             style={{ width: '100%' }}

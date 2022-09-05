@@ -12,7 +12,7 @@ export const useBearStore = create<BearState>()(
   devtools(
     persist(
       (set) => ({
-        autoplay: false,
+        autoplay: true,
         setAutoplay: (newValue) => set({ autoplay: newValue }),
         infiniteScroll: false,
         setInfiniteScroll: (newValue) => set({ infiniteScroll: newValue }),

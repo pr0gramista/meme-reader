@@ -4,10 +4,12 @@ import {
   Center,
   LoadingOverlay,
   MantineColor,
+  Skeleton,
 } from '@mantine/core';
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import MemeCard from './MemeCard';
+import SkeletonMemeCard from './SkeletonMemeCard';
 import { useBearStore } from './store';
 import { Meme, Page, PageZod } from './types';
 
@@ -107,7 +109,8 @@ const Site = ({ slug, color }: SiteProps) => {
 
   return (
     <Box sx={{ minHeight: '100vh', position: 'relative' }}>
-      <Box sx={{ maxWidth: 500, margin: 'auto', paddingBottom: 50 }}>
+      <Box sx={{ maxWidth: 600, margin: 'auto', paddingBottom: 50 }}>
+        {data?.memes == null && <SkeletonMemeCard />}
         {data?.memes.map(mapMemes)}
         {data?.next_page_url && (
           <Center>
@@ -117,10 +120,6 @@ const Site = ({ slug, color }: SiteProps) => {
           </Center>
         )}
       </Box>
-      <LoadingOverlay
-        transitionDuration={500}
-        visible={data == null && !store.infiniteScroll}
-      />
     </Box>
   );
 };
