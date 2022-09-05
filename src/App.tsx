@@ -26,6 +26,7 @@ function App() {
   const theme = useMantineTheme();
 
   const onNavigate = useCallback(() => {
+    window.scrollTo(0, 0);
     if (opened) {
       setOpened(false);
     }
@@ -123,36 +124,57 @@ function App() {
     >
       <Routes>
         <Route path="/kwejk">
-          <Route path="" element={<Site slug="kwejk" />} />
-          <Route path="page/:page" element={<Site slug="kwejk" />} />
+          <Route path="" element={<Site color="yellow" slug="kwejk" />} />
+          <Route
+            path="page/:page"
+            element={<Site color="yellow" slug="kwejk" />}
+          />
         </Route>
         <Route path="/jbzd">
-          <Route path="" element={<Site slug="jbzd" />} />
-          <Route path="page/:page" element={<Site slug="jbzd" />} />
+          <Route path="" element={<Site color="red" slug="jbzd" />} />
+          <Route path="page/:page" element={<Site color="red" slug="jbzd" />} />
         </Route>
         <Route path="/demotywatory">
-          <Route path="" element={<Site slug="demotywatory" />} />
-          <Route path="page/:page" element={<Site slug="demotywatory" />} />
+          <Route path="" element={<Site color="dark" slug="demotywatory" />} />
+          <Route
+            path="page/:page"
+            element={<Site color="dark" slug="demotywatory" />}
+          />
         </Route>
         <Route path="/mistrzowie">
-          <Route path="" element={<Site slug="mistrzowie" />} />
-          <Route path="page/:page" element={<Site slug="mistrzowie" />} />
+          <Route path="" element={<Site color="gray" slug="mistrzowie" />} />
+          <Route
+            path="page/:page"
+            element={<Site color="gray" slug="mistrzowie" />}
+          />
         </Route>
         <Route path="/anonimowe">
-          <Route path="" element={<Site slug="anonimowe" />} />
-          <Route path="page/:page" element={<Site slug="anonimowe" />} />
+          <Route path="" element={<Site color="green" slug="anonimowe" />} />
+          <Route
+            path="page/:page"
+            element={<Site color="green" slug="anonimowe" />}
+          />
         </Route>
         <Route path="/ifunnyco">
-          <Route path="" element={<Site slug="ifunnyco" />} />
-          <Route path="page/:page" element={<Site slug="ifunnyco" />} />
+          <Route path="" element={<Site color="yellow" slug="ifunnyco" />} />
+          <Route
+            path="page/:page"
+            element={<Site color="yellow" slug="ifunnyco" />}
+          />
         </Route>
         <Route path="/9gag">
-          <Route path="" element={<Site slug="9gag" />} />
-          <Route path="page/:page" element={<Site slug="9gag" />} />
+          <Route path="" element={<Site color="dark" slug="9gag" />} />
+          <Route
+            path="page/:page"
+            element={<Site color="dark" slug="9gag" />}
+          />
         </Route>
         <Route path="/9gagnsfw">
-          <Route path="" element={<Site slug="9gagnsfw" />} />
-          <Route path="page/:page" element={<Site slug="9gagnsfw" />} />
+          <Route path="" element={<Site color="pink" slug="9gagnsfw" />} />
+          <Route
+            path="page/:page"
+            element={<Site color="pink" slug="9gagnsfw" />}
+          />
         </Route>
       </Routes>
     </AppShell>

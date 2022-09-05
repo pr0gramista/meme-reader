@@ -8,7 +8,8 @@
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -16,7 +17,7 @@
       "jsx": true
     },
     "ecmaVersion": 12,
-    "sourceType": "module",
+    "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {

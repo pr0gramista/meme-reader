@@ -1,7 +1,17 @@
-import { Box, LoadingOverlay } from '@mantine/core';
+import {
+  Box,
+  Button,
+  Center,
+  LoadingOverlay,
+  MantineColor,
+} from '@mantine/core';
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import MemeCard from './MemeCard';
+import { useBearStore } from './store';
 import { Meme, Page, PageZod } from './types';
+
+const LOAD_WITHIN = 1200;
 
 export type SiteSlug =
   | 'kwejk'
@@ -15,14 +25,47 @@ export type SiteSlug =
 
 export interface SiteProps {
   slug: SiteSlug;
-  page?: string;
+  color: MantineColor;
 }
 
-const Site = ({ slug, page }: SiteProps) => {
+const Site = ({ slug, color }: SiteProps) => {
+  const { page } = useParams();
   const [data, setData] = useState<Page>();
+  const navigate = useNavigate();
+  const store = useBearStore();
+
+  const fetchNextPage = useCallback(() => {
+    if (!store.infiniteScroll) {
+      window.scrollTo(0, 0);
+    }
+
+    if (data != null && data.next_page_url) {
+      navigate(data?.next_page_url);
+    }
+  }, [store.infiniteScroll, data, navigate]);
 
   useEffect(() => {
-    setData(undefined);
+    const listener = () => {
+      if (store.infiniteScroll) {
+        const height = document.body.clientHeight;
+        const scrolledBottomPointY = window.innerHeight + window.scrollY;
+        if (height - scrolledBottomPointY < LOAD_WITHIN) {
+          fetchNextPage();
+        }
+      }
+    };
+
+    window.addEventListener('scroll', listener);
+
+    return () => {
+      window.removeEventListener('scroll', listener);
+    };
+  }, [store.infiniteScroll, fetchNextPage]);
+
+  useEffect(() => {
+    if (!store.infiniteScroll) {
+      setData(undefined);
+    }
 
     let url = `https://api.12345.pl/${slug}`;
     if (page != null) {
@@ -39,7 +82,15 @@ const Site = ({ slug, page }: SiteProps) => {
         const result = PageZod.safeParse(json);
 
         if (result.success) {
-          setData(result.data);
+          if (store.infiniteScroll) {
+            setData((data) => ({
+              memes: [...(data?.memes ?? []), ...result.data.memes],
+              next_page_url: result.data.next_page_url,
+              title: result.data.title,
+            }));
+          } else {
+            setData(result.data);
+          }
         } else {
           console.error(result.error);
         }
@@ -48,7 +99,7 @@ const Site = ({ slug, page }: SiteProps) => {
     return () => {
       cancelled = true;
     };
-  }, [slug, page]);
+  }, [slug, page, store.infiniteScroll]);
 
   const mapMemes = useCallback((meme: Meme) => {
     return <MemeCard key={meme.url} meme={meme} />;
@@ -56,10 +107,20 @@ const Site = ({ slug, page }: SiteProps) => {
 
   return (
     <Box sx={{ minHeight: '100vh', position: 'relative' }}>
-      <Box sx={{ maxWidth: 500, margin: 'auto' }}>
+      <Box sx={{ maxWidth: 500, margin: 'auto', paddingBottom: 50 }}>
         {data?.memes.map(mapMemes)}
+        {data?.next_page_url && (
+          <Center>
+            <Button color={color} uppercase onClick={fetchNextPage}>
+              Next page
+            </Button>
+          </Center>
+        )}
       </Box>
-      <LoadingOverlay transitionDuration={500} visible={data == null} />
+      <LoadingOverlay
+        transitionDuration={500}
+        visible={data == null && !store.infiniteScroll}
+      />
     </Box>
   );
 };
