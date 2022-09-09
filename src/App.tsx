@@ -19,6 +19,7 @@ import Sites from './Sites';
 import { Route, Routes } from 'react-router-dom';
 import Site from './Site';
 import { useBearStore } from './store';
+import Initial from './Initial';
 
 function App() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -123,6 +124,7 @@ function App() {
       })}
     >
       <Routes>
+        <Route path="/" element={<Initial />} />
         <Route path="/kwejk">
           <Route path="" element={<Site color="yellow" slug="kwejk" />} />
           <Route

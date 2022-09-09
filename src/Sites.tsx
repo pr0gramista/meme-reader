@@ -60,7 +60,7 @@ function SiteLink({ icon, color, label, path, onNavigate }: SiteLinkProps) {
   );
 }
 
-const data: SiteLink[] = [
+export const sitesLinks: SiteLink[] = [
   { icon: <Smiley size={16} />, color: 'red', label: 'Jbzd', path: '/jbzd' },
   {
     icon: <Smiley size={16} />,
@@ -111,7 +111,7 @@ interface SitesProps {
 }
 
 const Sites = ({ onNavigate }: SitesProps) => {
-  const links = data.map((link) => (
+  const links = sitesLinks.map((link) => (
     <SiteLink {...link} key={link.label} onNavigate={onNavigate} />
   ));
   return <div>{links}</div>;
