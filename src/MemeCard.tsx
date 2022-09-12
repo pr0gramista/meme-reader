@@ -44,7 +44,11 @@ const MemeCard = ({ meme }: MemeCardProps) => {
         )}
       </Box>
       <Group grow position="apart" sx={{ fontSize: 14 }}>
-        {meme.comment_count && <Box>Comments: {meme.comment_count}</Box>}
+        {meme.comment_count && (
+          <Box sx={{ color: 'inherit' }} component="a" href={meme.url}>
+            Comments: {meme.comment_count}
+          </Box>
+        )}
         <Box sx={{ flex: 0, color: 'inherit' }} component="a" href={meme.url}>
           Source
         </Box>
