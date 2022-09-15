@@ -1,8 +1,10 @@
 {
   "name": "meme-reader",
+  "description": "Frontend for Memes API",
+  "author": "Bartosz Wiśniewski <kontakt@pr0gramista.pl>",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "2.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
