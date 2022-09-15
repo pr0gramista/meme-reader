@@ -1,6 +1,6 @@
 import { Carousel } from '@mantine/carousel';
 import { Box, Title, Group, Image } from '@mantine/core';
-import { useBearStore } from './store';
+import { useReaderSettings } from './readerSettings';
 import { Meme } from './types';
 
 export interface MemeCardProps {
@@ -8,7 +8,7 @@ export interface MemeCardProps {
 }
 
 const MemeCard = ({ meme }: MemeCardProps) => {
-  const autoplay = useBearStore().autoplay;
+  const autoplay = useReaderSettings().autoplay;
 
   return (
     <Box sx={{ marginBottom: 12 }}>

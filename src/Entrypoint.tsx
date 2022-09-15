@@ -23,6 +23,7 @@ export const Entrypoint = () => {
           colorScheme,
           colors: {
             dark: [
+              // Adjust color for even darker experience
               '#ffffff',
               '#C1C2C5',
               '#909296',

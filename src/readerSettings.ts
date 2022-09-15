@@ -1,14 +1,14 @@
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-interface BearState {
+interface ReadingSettingsState {
   autoplay: boolean;
   setAutoplay: (newValue: boolean) => void;
   infiniteScroll: boolean;
   setInfiniteScroll: (newValue: boolean) => void;
 }
 
-export const useBearStore = create<BearState>()(
+export const useReaderSettings = create<ReadingSettingsState>()(
   devtools(
     persist(
       (set) => ({
@@ -18,7 +18,7 @@ export const useBearStore = create<BearState>()(
         setInfiniteScroll: (newValue) => set({ infiniteScroll: newValue }),
       }),
       {
-        name: 'bear-storage',
+        name: 'reader-settings',
       },
     ),
   ),

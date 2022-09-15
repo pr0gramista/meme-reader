@@ -49,6 +49,8 @@ export const useFetchMemePage = ({
         }
       })
       .catch((e) => {
+        if (cancelled) return;
+
         setError(e);
       });
 

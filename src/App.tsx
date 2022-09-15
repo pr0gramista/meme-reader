@@ -18,7 +18,7 @@ import { MoonStars, SunDim } from 'phosphor-react';
 import Sites from './Sites';
 import { Route, Routes } from 'react-router-dom';
 import Site from './Site';
-import { useBearStore } from './store';
+import { useReaderSettings } from './readerSettings';
 import Initial from './Initial';
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
     }
   }, [opened, setOpened]);
 
-  const store = useBearStore();
+  const store = useReaderSettings();
 
   return (
     <AppShell

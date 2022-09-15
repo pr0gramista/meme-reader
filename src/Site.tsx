@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import MemeCard from './MemeCard';
 import SkeletonMemeCard from './SkeletonMemeCard';
-import { useBearStore } from './store';
+import { useReaderSettings } from './readerSettings';
 import { Meme } from './types';
 import { useFetchMemePage } from './useFetchMemePage';
 
@@ -27,7 +27,7 @@ export interface SiteProps {
 const Site = ({ slug, color }: SiteProps) => {
   const { page } = useParams();
   const navigate = useNavigate();
-  const store = useBearStore();
+  const store = useReaderSettings();
   const [data, error] = useFetchMemePage({
     slug,
     page,
