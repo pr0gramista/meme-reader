@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Page, PageZod } from './types';
 
 export const useFetchMemePage = ({
@@ -10,11 +10,14 @@ export const useFetchMemePage = ({
   infiniteScroll?: boolean;
   page?: string;
 }) => {
+  // Keep last slug so we can detect when user changes the site
+  const lastSlugRef = useRef<string>();
   const [data, setData] = useState<Page>();
   const [error, setError] = useState<Error>();
 
   useEffect(() => {
-    if (!infiniteScroll) {
+    // Clear data when not using infinite scroll or the site has changed
+    if (!infiniteScroll || slug !== lastSlugRef.current) {
       setData(undefined);
       setError(undefined);
     }
@@ -25,6 +28,7 @@ export const useFetchMemePage = ({
     }
 
     let cancelled = false;
+    lastSlugRef.current = slug;
 
     fetch(url)
       .then((r) => r.json())
