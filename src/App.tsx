@@ -158,10 +158,13 @@ function App() {
           />
         </Route>
         <Route path="/ifunnyco">
-          <Route path="" element={<Site color="yellow" slug="ifunnyco" />} />
+          <Route
+            path=""
+            element={<Site color="yellow" slug="ifunnyco" showTitles={false} />}
+          />
           <Route
             path="page/:page"
-            element={<Site color="yellow" slug="ifunnyco" />}
+            element={<Site color="yellow" slug="ifunnyco" showTitles={false} />}
           />
         </Route>
         <Route path="/9gag">
@@ -176,6 +179,16 @@ function App() {
           <Route
             path="page/:page"
             element={<Site color="pink" slug="9gagnsfw" />}
+          />
+        </Route>
+        <Route path="/faktopedia">
+          <Route
+            path=""
+            element={<Site color="gray" slug="faktopedia" showTitles={false} />}
+          />
+          <Route
+            path="page/:page"
+            element={<Site color="gray" slug="faktopedia" showTitles={false} />}
           />
         </Route>
       </Routes>

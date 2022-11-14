@@ -5,14 +5,15 @@ import { Meme } from './types';
 
 export interface MemeCardProps {
   meme: Meme;
+  showTitle?: boolean;
 }
 
-const MemeCard = ({ meme }: MemeCardProps) => {
+const MemeCard = ({ meme, showTitle = true }: MemeCardProps) => {
   const autoplay = useReaderSettings().autoplay;
 
   return (
     <Box sx={{ marginBottom: 12 }}>
-      {meme.title && (
+      {meme.title && showTitle && (
         <Title order={3} sx={{ marginBottom: 4 }}>
           {meme.title}
         </Title>
