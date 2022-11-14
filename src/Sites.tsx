@@ -2,6 +2,7 @@ import { UnstyledButton, Group, ThemeIcon, Text } from '@mantine/core';
 import {
   Article,
   CrownSimple,
+  Flask,
   MaskSad,
   NumberNine,
   Smiley,
@@ -103,6 +104,12 @@ export const sitesLinks: SiteLink[] = [
     color: 'yellow',
     label: 'iFunny',
     path: '/ifunnyco',
+  },
+  {
+    icon: <Flask size={16} />,
+    color: 'gray',
+    label: 'Faktopedia',
+    path: '/faktopedia',
   },
 ];
 

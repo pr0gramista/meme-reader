@@ -17,14 +17,16 @@ export type SiteSlug =
   | 'ifunnyco'
   | 'mistrzowie'
   | 'demotywatory'
-  | 'anonimowe';
+  | 'anonimowe'
+  | 'faktopedia';
 
 export interface SiteProps {
   slug: SiteSlug;
   color: MantineColor;
+  showTitles?: boolean;
 }
 
-const Site = ({ slug, color }: SiteProps) => {
+const Site = ({ slug, color, showTitles = true }: SiteProps) => {
   const { page } = useParams();
   const navigate = useNavigate();
   const store = useReaderSettings();
@@ -63,7 +65,7 @@ const Site = ({ slug, color }: SiteProps) => {
   }, [store.infiniteScroll, fetchNextPage]);
 
   const mapMemes = useCallback((meme: Meme) => {
-    return <MemeCard key={meme.url} meme={meme} />;
+    return <MemeCard key={meme.url} meme={meme} showTitle={showTitles} />;
   }, []);
 
   return (
